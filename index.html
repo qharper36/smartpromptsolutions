@@ -7,6 +7,7 @@
   <meta name="description" content="Save 10+ hours weekly with professional AI prompt packs designed for busy entrepreneurs and small business owners.">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Header */
     .header {
       background-color: #1a1a1a !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -25,12 +26,18 @@
       width: 100%;
       height: auto;
     }
-    .blog__grid {
+    /* Grids */
+    .products__grid,
+    .blog__grid,
+    .testimonials__grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
       gap: 2rem;
     }
-    .blog__card {
+    /* Cards */
+    .product__card,
+    .blog__card,
+    .testimonial__card {
       background: #2a2a2a;
       padding: 1.5rem;
       border-radius: 8px;
@@ -38,20 +45,17 @@
     .blog__excerpt {
       margin: 1rem 0;
     }
-    .contact__social {
+    /* Social icons */
+    .contact__social,
+    .footer__social .social__icons {
       margin-top: 1rem;
     }
-    .contact__social a {
-      margin-right: 1rem;
-      display: inline-block;
-    }
-    .contact__social img {
-      vertical-align: middle;
-    }
+    .contact__social a,
     .footer__social .social__icons a {
       margin-right: 1rem;
       display: inline-block;
     }
+    .contact__social img,
     .footer__social .social__icons img {
       vertical-align: middle;
     }
@@ -62,13 +66,11 @@
   <header class="header">
     <nav class="nav container">
       <div class="nav__brand">
-        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png"
-             alt="Smart Prompt Solutions"
-             class="nav__logo">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
       </div>
       <ul class="nav__menu" id="navMenu">
-        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-        <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
+        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="#products" class="nav__link">Products</a></li>
         <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
         <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
@@ -79,7 +81,7 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero__content">
@@ -87,198 +89,101 @@
           <p class="hero__subtitle">Save 10+ hours weekly with our professional AI prompt packs designed specifically for busy entrepreneurs and small business owners</p>
           <div class="hero__actions">
             <a href="#products" class="btn btn--primary btn--lg">Browse Prompt Packs</a>
-            <a href="#about" class="btn btn--outline btn--lg">Learn More</a>
-          </div>
-        </div>
-        <div class="hero__image">
-          <div class="hero__graphic">
-            <div class="ai-icon">🤖</div>
-            <div class="automation-elements">
-              <div class="element element--1">📝</div>
-              <div class="element element--2">📊</div>
-              <div class="element element--3">💼</div>
-              <div class="element element--4">⚡</div>
-            </div>
+            <a href="about.html" class="btn btn--outline btn--lg">Learn More</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features">
       <div class="container">
         <h2 class="section__title">Why Choose Smart Prompt Solutions?</h2>
         <div class="features__grid">
-          <div class="feature__card">
-            <div class="feature__icon">⏰</div>
-            <h3 class="feature__title">Time-Saving Automation</h3>
-            <p class="feature__description">Automate repetitive content creation and marketing tasks with proven AI prompts</p>
-          </div>
-          <div class="feature__card">
-            <div class="feature__icon">⭐</div>
-            <h3 class="feature__title">Professional Quality</h3>
-            <p class="feature__description">Business-focused prompts tested and optimized for real-world results</p>
-          </div>
-          <div class="feature__card">
-            <div class="feature__icon">🔌</div>
-            <h3 class="feature__title">Plug-and-Play Ready</h3>
-            <p class="feature__description">Copy, paste, and customize – no technical expertise required</p>
-          </div>
-          <div class="feature__card">
-            <div class="feature__icon">🎯</div>
-            <h3 class="feature__title">Business-Focused Solutions</h3>
-            <p class="feature__description">Designed specifically for entrepreneurs and small business challenges</p>
-          </div>
+          <div class="feature__card"><div class="feature__icon">⏰</div><h3>Time-Saving Automation</h3><p>Automate repetitive tasks with proven AI prompts.</p></div>
+          <div class="feature__card"><div class="feature__icon">⭐</div><h3>Professional Quality</h3><p>Business-focused prompts optimized for real-world results.</p></div>
+          <div class="feature__card"><div class="feature__icon">🔌</div><h3>Plug-and-Play Ready</h3><p>Copy, paste, customize – no technical expertise required.</p></div>
+          <div class="feature__card"><div class="feature__icon">🎯</div><h3>Business-Focused</h3><p>Designed for entrepreneurs and small business challenges.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products -->
     <section class="products" id="products">
       <div class="container">
         <h2 class="section__title">Our AI Prompt Packs</h2>
         <div class="products__grid">
-          
-          <!-- Marketing Automation Pack -->
           <div class="product__card product__card--featured">
-            <div class="product__badge">Popular</div>
-            <h3 class="product__title">Marketing Automation Pack</h3>
-            <p class="product__description">
-              A comprehensive collection of 12 AI prompt templates to automate your entire marketing funnel:
-              outreach sequences, lead-generation ads, customer-engagement workflows, and dynamic A/B tests.
-            </p>
+            <div class="product__badge">Popular</div><h3>Marketing Automation Pack</h3>
+            <p>12 AI templates for outreach, ads, engagement workflows, and A/B tests.</p>
             <div class="product__price">$19</div>
-            <a href="https://buy.stripe.com/dRm9AM97LbBY7Fz49v9sk01" target="_blank" class="btn btn--primary btn--full-width">
-              Buy Marketing Automation Pack
-            </a>
+            <a href="https://buy.stripe.com/dRm9AM97LbBY7Fz49v9sk01" target="_blank" class="btn btn--primary btn--full-width">Buy Marketing Automation Pack</a>
           </div>
-
-          <!-- Productivity Booster Pack -->
           <div class="product__card">
-            <h3 class="product__title">Productivity Booster Pack</h3>
-            <p class="product__description">
-              A versatile toolkit of 10 AI prompts for daily planning: morning briefings, meeting agendas, to-do lists,
-              workflow optimization, and end-of-day retrospectives.
-            </p>
+            <h3>Productivity Booster Pack</h3><p>10 AI prompts for planning, agendas, to-dos, and efficiency.</p>
             <div class="product__price">$12</div>
-            <a href="https://buy.stripe.com/fZubIU0Bf9tQ6Bv35r9sk02" target="_blank" class="btn btn--primary btn--full-width">
-              Buy Productivity Booster Pack
-            </a>
+            <a href="https://buy.stripe.com/fZubIU0Bf9tQ6Bv35r9sk02" target="_blank" class="btn btn--primary btn--full-width">Buy Productivity Booster Pack</a>
           </div>
-
-          <!-- Small Business Content Pack -->
           <div class="product__card">
-            <h3 class="product__title">Small Business Content Pack</h3>
-            <p class="product__description">
-              10 professional AI prompts for email campaigns, product descriptions, and social media content—
-              designed to save you hours each week.
-            </p>
+            <h3>Small Business Content Pack</h3><p>10 prompts for emails, product descriptions, and social media.</p>
             <div class="product__price">$15</div>
-            <a href="https://buy.stripe.com/14A4gsgAd5dAgc5bBX9sk00" target="_blank" class="btn btn--primary btn--full-width">
-              Buy Small Business Content Pack
-            </a>
+            <a href="https://buy.stripe.com/14A4gsgAd5dAgc5bBX9sk00" target="_blank" class="btn btn--primary btn--full-width">Buy Small Business Content Pack</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about__content">
-          <h2 class="section__title">About Smart Prompt Solutions</h2>
-          <p class="about__text">We understand the challenges busy entrepreneurs and small business owners face every day. That's why we created Smart Prompt Solutions – to help you harness the power of AI automation without the complexity.</p>
-          <p class="about__text">Our team of AI specialists and business consultants have crafted professional prompt packs that solve real business problems. Each prompt is tested, refined, and optimized to deliver measurable results for your business.</p>
-          <p class="about__text">Join thousands of successful entrepreneurs who are already saving time and growing their businesses with our smart AI solutions.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
+    <!-- Blog -->
     <section class="blog" id="blog">
       <div class="container">
         <h2 class="section__title">From Our Blog</h2>
         <div class="blog__grid">
-          <div class="blog__card">
-            <h3 class="blog__title"><a href="blog/post1.html">How AI Prompts Save You 10+ Hours a Week</a></h3>
-            <p class="blog__excerpt">Discover actionable tips on using our prompt packs to streamline your daily tasks…</p>
-            <a href="blog/post1.html" class="btn btn--outline">Read More</a>
-          </div>
-          <div class="blog__card">
-            <h3 class="blog__title"><a href="blog/post2.html">5 Ways to Automate Your Marketing with AI</a></h3>
-            <p class="blog__excerpt">Learn how to generate email campaigns, social media posts, and ad copy in seconds…</p>
-            <a href="blog/post2.html" class="btn btn--outline">Read More</a>
-          </div>
+          <div class="blog__card"><h3><a href="blog/post1.html">How AI Prompts Save You 10+ Hours a Week</a></h3><p class="blog__excerpt">Discover tips to streamline tasks…</p><a href="blog/post1.html" class="btn btn--outline">Read More</a></div>
+          <div class="blog__card"><h3><a href="blog/post2.html">5 Ways to Automate Your Marketing with AI</a></h3><p class="blog__excerpt">Generate campaigns in seconds…</p><a href="blog/post2.html" class="btn btn--outline">Read More</a></div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials">
       <div class="container">
         <h2 class="section__title">What Our Customers Say</h2>
         <div class="testimonials__grid">
-          <div class="testimonial__card">
-            <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial__text">"These prompts saved me 15 hours last week! My content creation is now completely automated."</p>
-            <div class="testimonial__author">Sarah M., Marketing Consultant</div>
-          </div>
-          <div class="testimonial__card">
-            <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial__text">"The product description prompts doubled my conversion rates. Worth every penny!"</p>
-            <div class="testimonial__author">Mike R., E-commerce Owner</div>
-          </div><!-- /testimonial__card -->
-          <div class="testimonial__card">
-            <div class="testimonial__stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial__text">"Finally found prompts that actually work for real business problems. Highly recommend!"</p>
-            <div class="testimonial__author">Lisa K., Solopreneur</div>
-          </div>
+          <div class="testimonial__card"><div class="testimonial__stars">⭐⭐⭐⭐⭐</div><p>"Saved me 15 hours last week!"</p><div class="testimonial__author">Sarah M.</div></div>
+          <div class="testimonial__card"><div class="testimonial__stars">⭐⭐⭐⭐⭐</div><p>"Doubled my conversion rates!"</p><div class="testimonial__author">Mike R.</div></div>
+          <div class="testimonial__card"><div class="testimonial__stars">⭐⭐⭐⭐⭐</div><p>"Finally found prompts that work!"</p><div class="testimonial__author">Lisa K.</div></div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="contact" id="contact">
       <div class="container">
         <h2 class="section__title">Get Started Today</h2>
-        <div class="contact__content">
-          <div class="contact__info">
-            <h3>Ready to transform your business?</h3>
-            <p>Contact us to learn more about our AI prompt packs or discuss custom solutions for your business.</p>
-            <div class="contact__details">
-              <div class="contact__item"><strong>Email:</strong> support@smartpromptsolutions.com</div>
-              <div class="contact__item"><strong>Phone:</strong> (555) 123-4567</div>
-              <div class="contact__item"><strong>Location:</strong> Duluth, Georgia, USA</div>
-            </div>
-            <div class="contact__social">
-              <a href="https://linkedin.com/company/smartpromptsolutions" target="_blank"><img src="icons/linkedin.svg" alt="LinkedIn" width="24"></a>
-              <a href="https://x.com/smartpromptsol" target="_blank"><img src="icons/x.svg" alt="X" width="24"></a>
-              <a href="https://facebook.com/smartpromptsolutions" target="_blank"><img src="icons/facebook.svg" alt="Facebook" width="24"></a>
-              <a href="https://instagram.com/smartpromptsolutions" target="_blank"><img src="icons/instagram.svg" alt="Instagram" width="24"></a>
-              <a href="https://tiktok.com/@smartpromptsolutions" target="_blank"><img src="icons/tiktok.svg" alt="TikTok" width="24"></a>
-            </div>
+        <div class="contact__info">
+          <h3>Ready to transform your business?</h3>
+          <p>Contact us to learn more or discuss custom solutions.</p>
+          <div class="contact__details">
+            <div><strong>Email:</strong> support@smartpromptsolutions.com</div>
+            <div><strong>Phone:</strong> (555) 123-4567</div>
+            <div><strong>Location:</strong> Duluth, Georgia, USA</div>
           </div>
-          <form id="contactForm" action="https://formspree.io/f/mzzvaanw" method="POST" class="contact__form">
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company">
-            </div>
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
-          </form>
+          <div class="contact__social">
+            <a href="https://linkedin.com/company/smartpromptsolutions" target="_blank"><img src="icons/linkedin.svg" alt="LinkedIn" width="24"></a>
+            <a href="https://x.com/smart_prompts1?t=Uhe6dtIcf7KKO06Bt9TvEg&s=09" target="_blank"><img src="icons/x.svg" alt="X" width="24"></a>
+            <a href="https://www.threads.com/@smartpromptsoultions" target="_blank"><img src="https://cdn.simpleicons.org/threads/ffffff" alt="Threads" width="24" height="24"></a>
+            <a href="https://facebook.com/smartpromptsolutions" target="_blank"><img src="icons/facebook.svg" alt="Facebook" width="24"></a>
+            <a href="https://cdn.simpleicons.org/instagram/ffffff" target="_blank"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="24" height="24"></a>
+            <a href="https://tiktok.com/@smartpromptsolutions"	target="_blank"><img src="icons/tiktok.svg" alt="TikTok" width="24"></a>
+          </div>
         </div>
+        <form id="contactForm" action="https://formspree.io/f/mzzvaanw" method="POST" class="contact__form container">
+          <div class="form-group"><label for="name">Name *</label><input type="text" id="name" name="name" required></div>
+          <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+          <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company"></div>
+          <div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" rows="4" required></textarea></div>
+          <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
@@ -294,8 +199,8 @@
         <div class="footer__links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -305,19 +210,18 @@
           <h4>Connect With Us</h4>
           <div class="social__icons">
             <a href="https://linkedin.com/company/smartpromptsolutions" target="_blank"><img src="icons/linkedin.svg" alt="LinkedIn" width="24"></a>
-            <a href="https://x.com/smartpromptsol" target="_blank"><img src="icons/x.svg" alt="X" width="24"></a>
+            <a href="https://x.com/smart_prompts1?t=Uhe6dtIcf7KKO06Bt9TvEg&s=09" target="_blank"><img src="icons/x.svg" alt="X" width="24"></a>
+            <a href="https://www.threads.com/@smartpromptsoultions" target="_blank"><img src="https://cdn.simpleicons.org/threads/ffffff" alt="Threads" width="24" height="24"></a>
             <a href="https://facebook.com/smartpromptsolutions" target="_blank"><img src="icons/facebook.svg" alt="Facebook" width="24"></a>
-            <a href="https://instagram.com/smartpromptsolutions" target="_blank"><img src="icons/instagram.svg" alt="Instagram" width="24"></a>
+            <a href="https://cdn.simpleicons.org/instagram/ffffff" target="_blank"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="24" height="24"></a>
             <a href="https://tiktok.com/@smartpromptsolutions" target="_blank"><img src="icons/tiktok.svg" alt="TikTok" width="24"></a>
           </div>
         </div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
-      </div>
+      <div class="footer__bottom"><p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p></div>
     </div>
   </footer>
-
+  
   <script src="app.js"></script>
 </body>
 </html>
