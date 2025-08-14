@@ -1,0 +1,15 @@
+{
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" },
+    { "src": "**/*.html", "use": "@vercel/static" },
+    { "src": "style.css",        "use": "@vercel/static" },
+    { "src": "app.js",           "use": "@vercel/static" },
+    { "src": "icons/*",          "use": "@vercel/static" },
+    { "src": "blog/*",           "use": "@vercel/static" },
+    { "src": "sps_*.png",        "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1.js" },
+    { "src": "/(.*)",     "dest": "/$1" }
+  ]
+}
