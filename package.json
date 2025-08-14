@@ -1,0 +1,13 @@
+{
+  "name": "smartpromptsolutions",
+  "version": "1.0.0",
+  "description": "Smart Prompt Solutions website with Stripe integration",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "echo 'Static site'"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "micro": "^10.0.1"
+  }
+}
