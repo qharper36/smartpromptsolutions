@@ -1,0 +1,6 @@
+[build]
+  publish = "."            # your site is served from the repo root
+  functions = "api"        # functions live in the api/ folder
+
+[functions]
+  node_bundler = "esbuild" # optional, but recommended
