@@ -1,27 +1,52 @@
-import Stripe from 'stripe';
-import { buffer } from 'micro';
+import Stripe from "stripe";
+import { buffer } from "micro";
 
 export const config = {
-  api: { bodyParser: false },
+  api: {
+    bodyParser: false
+  }
 };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// Netlify Functions expect an “exports.handler” that returns { statusCode, headers, body }
+export async function handler(event, context) {
+  // Only allow POST
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      headers: { Allow: "POST" },
+      body: "Method Not Allowed"
+    };
+  }
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).end('Method Not Allowed');
-  }
-  const sig = req.headers['stripe-signature'];
-  const rawBody = await buffer(req);
-  let event;
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  const sig = event.headers["stripe-signature"] || event.headers["Stripe-Signature"];
+  const buf = await buffer({
+    rawBody: Buffer.from(event.body || "", "utf8"),
+    headers: event.headers
+  });
+
+  let webhookEvent;
   try {
-    event = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    webhookEvent = stripe.webhooks.constructEvent(
+      buf,
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
   } catch (err) {
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+    return {
+      statusCode: 400,
+      body: `Webhook Error: ${err.message}`
+    };
   }
-  if (event.type === 'checkout.session.completed') {
-    console.log('Checkout completed for session', event.data.object.id);
+
+  if (webhookEvent.type === "checkout.session.completed") {
+    const session = webhookEvent.data.object;
+    console.log("Checkout completed for session", session.id);
+    // Perform any fulfillment logic here
   }
-  res.status(200).json({ received: true });
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ received: true })
+  };
 }
