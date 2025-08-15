@@ -1,29 +1,25 @@
 import Stripe from "stripe";
-import { buffer } from "micro";
 
-export const config = {
-  api: {
-    bodyParser: false
-  }
-};
-
-// Netlify Functions expect an “exports.handler” that returns { statusCode, headers, body }
-export async function handler(event, context) {
-  // Only allow POST
+// Exports must be named “handler” for Netlify Functions
+export async function handler(event) {
+  // Only accept POST
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
       headers: { Allow: "POST" },
-      body: "Method Not Allowed"
+      body: "Method Not Allowed",
     };
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  const sig = event.headers["stripe-signature"] || event.headers["Stripe-Signature"];
-  const buf = await buffer({
-    rawBody: Buffer.from(event.body || "", "utf8"),
-    headers: event.headers
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    // Ensure we don’t accidentally use a newer API mismatch
+    apiVersion: "2025-07-30",
   });
+
+  // Stripe requires the raw request body for signature verification.
+  // Netlify provides `event.body` as a string; convert to Buffer.
+  const buf = Buffer.from(event.body || "", "utf8");
+  const sig = event.headers["stripe-signature"] || "";
 
   let webhookEvent;
   try {
@@ -33,20 +29,18 @@ export async function handler(event, context) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    return {
-      statusCode: 400,
-      body: `Webhook Error: ${err.message}`
-    };
+    // Log the error for debugging
+    console.error("⚠️  Webhook signature verification failed.", err.message);
+    return { statusCode: 400, body: `Webhook Error: ${err.message}` };
   }
 
+  // Handle the event
   if (webhookEvent.type === "checkout.session.completed") {
     const session = webhookEvent.data.object;
-    console.log("Checkout completed for session", session.id);
-    // Perform any fulfillment logic here
+    console.log("✅  Checkout completed for session:", session.id);
+    // Insert fulfillment logic here
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ received: true })
-  };
+  // Return a 200 to acknowledge receipt
+  return { statusCode: 200, body: JSON.stringify({ received: true }) };
 }
