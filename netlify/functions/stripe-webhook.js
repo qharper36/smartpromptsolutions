@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-// Exports must be named “handler” for Netlify Functions
+// Netlify Functions use "handler" export
 export async function handler(event) {
   // Only accept POST
   if (event.httpMethod !== "POST") {
@@ -11,25 +11,20 @@ export async function handler(event) {
     };
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    // Ensure we don’t accidentally use a newer API mismatch
-    apiVersion: "2025-07-30",
-  });
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  // Stripe requires the raw request body for signature verification.
-  // Netlify provides `event.body` as a string; convert to Buffer.
-  const buf = Buffer.from(event.body || "", "utf8");
-  const sig = event.headers["stripe-signature"] || "";
+  // Get the raw body (as string, not parsed)
+  const sig = event.headers["stripe-signature"];
+  const body = event.body; // This is a string!
 
   let webhookEvent;
   try {
     webhookEvent = stripe.webhooks.constructEvent(
-      buf,
+      body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    // Log the error for debugging
     console.error("⚠️  Webhook signature verification failed.", err.message);
     return { statusCode: 400, body: `Webhook Error: ${err.message}` };
   }
@@ -38,9 +33,7 @@ export async function handler(event) {
   if (webhookEvent.type === "checkout.session.completed") {
     const session = webhookEvent.data.object;
     console.log("✅  Checkout completed for session:", session.id);
-    // Insert fulfillment logic here
   }
 
-  // Return a 200 to acknowledge receipt
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
 }
