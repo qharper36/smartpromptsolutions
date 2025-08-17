@@ -1,23 +1,38 @@
 import Stripe from "stripe";
+import fetch from "node-fetch";
 import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+const PDF_MAP = {
+  prod_SnXuRnOi6Z8OVw: {
+    filename: "PRODUCTIVITY-BOOSTER-PACK.pdf",
+    url:
+      "https://github.com/qharper36/smartpromptsolutions/releases/download/v1.0/PRODUCTIVITY-BOOSTER-PACK.pdf",
+  },
+  prod_SnXJP796uNZYS2: {
+    filename: "Small-Business-Content-Pack.pdf",
+    url:
+      "https://github.com/qharper36/smartpromptsolutions/releases/download/v1.0/Small-Business-Content-Pack.pdf",
+  },
+  prod_SnXtH62ZcjLT8s: {
+    filename:
+      "Smart-Prompt-Solutions-Marketing-Automation-Prompt-Pack-2025.pdf",
+    url:
+      "https://github.com/qharper36/smartpromptsolutions/releases/download/v1.0/Smart-Prompt-Solutions-Marketing-Automation-Prompt-Pack-2025.pdf",
+  },
+};
+
 export async function handler(event) {
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      headers: { Allow: "POST" },
-      body: "Method Not Allowed",
-    };
+    return { statusCode: 405, headers: { Allow: "POST" }, body: "Method Not Allowed" };
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  const sig =
-    event.headers["stripe-signature"] ||
-    event.headers["Stripe-Signature"] ||
-    "";
-  const payload = event.body; // raw string
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: "2025-07-30",
+  });
+  const sig = event.headers["stripe-signature"] || "";
+  const payload = event.body;
 
   let webhookEvent;
   try {
@@ -27,41 +42,58 @@ export async function handler(event) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("⚠️  Webhook verification failed.", err.message);
+    console.error("⚠️  Webhook verification failed:", err.message);
     return { statusCode: 400, body: `Webhook Error: ${err.message}` };
   }
 
   if (webhookEvent.type === "checkout.session.completed") {
     const session = webhookEvent.data.object;
-    console.log("✅  Checkout completed for session:", session.id);
 
-    // Generate or retrieve your PDF buffer
-    const pdfBuffer = await generatePdfForSession(session.id);
+    // Retrieve session line items to identify the product ID
+    const sessionWithItems = await stripe.checkout.sessions.retrieve(session.id, {
+      expand: ["line_items"],
+    });
+    const lineItem = sessionWithItems.line_items.data[0];
+    const productId = lineItem.price.product;
 
-    // Send the PDF via email
+    const pdfEntry = PDF_MAP[productId];
+    if (!pdfEntry) {
+      console.error("❌ No PDF configured for product ID:", productId);
+      return { statusCode: 400, body: "Invalid product ID" };
+    }
+
+    // Download the specific PDF
+    const res = await fetch(pdfEntry.url);
+    if (!res.ok) {
+      console.error("❌ Failed to download PDF:", res.status);
+      return { statusCode: 502, body: "Failed to fetch PDF" };
+    }
+    const pdfBuffer = await res.buffer();
+
+    // Send email with the matching PDF
     const msg = {
       to: session.customer_email,
       from: "you@yourdomain.com",
-      subject: "Your PDF is here",
-      text: "Thanks for your purchase! Find your PDF attached.",
+      subject: "Your PDF from Smart Prompt Solutions",
+      text: "Thank you for your purchase! Please find your PDF attached.",
       attachments: [
         {
           content: pdfBuffer.toString("base64"),
-          filename: "document.pdf",
+          filename: pdfEntry.filename,
           type: "application/pdf",
           disposition: "attachment",
         },
       ],
     };
-    await sgMail.send(msg);
-    console.log("📧 PDF email sent to:", session.customer_email);
+
+    try {
+      await sgMail.send(msg);
+      console.log("📧 PDF email sent to:", session.customer_email);
+    } catch (emailErr) {
+      console.error("❌ Error sending email:", emailErr);
+      return { statusCode: 500, body: "Failed to send email" };
+    }
   }
 
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
-}
-
-// Example placeholder for PDF generation
-async function generatePdfForSession(sessionId) {
-  // Your logic here (e.g., fetch from S3 or generate dynamically)
-  return Buffer.from("%PDF-1.4 ..."); 
 }
