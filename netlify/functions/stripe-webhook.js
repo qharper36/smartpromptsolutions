@@ -1,8 +1,9 @@
 import Stripe from "stripe";
 import fetch from "node-fetch";
-import sgMail from "@sendgrid/mail";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2025-07-30",
+});
 
 const PDF_MAP = {
   prod_SnXuRnOi6Z8OVw: {
@@ -28,35 +29,28 @@ export async function handler(event) {
     return { statusCode: 405, headers: { Allow: "POST" }, body: "Method Not Allowed" };
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2025-07-30",
-  });
+  // Verify Stripe webhook signature
   const sig = event.headers["stripe-signature"] || "";
-  const payload = event.body;
-
   let webhookEvent;
   try {
     webhookEvent = stripe.webhooks.constructEvent(
-      payload,
+      event.body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    console.error("⚠️  Webhook verification failed:", err.message);
+    console.error("⚠️ Webhook verification failed:", err.message);
     return { statusCode: 400, body: `Webhook Error: ${err.message}` };
   }
 
   if (webhookEvent.type === "checkout.session.completed") {
-    const session = webhookEvent.data.object;
-
-    // Retrieve session line items to identify the product ID
-    const sessionWithItems = await stripe.checkout.sessions.retrieve(session.id, {
+    // Retrieve session with line items
+    const session = await stripe.checkout.sessions.retrieve(webhookEvent.data.object.id, {
       expand: ["line_items"],
     });
-    const lineItem = sessionWithItems.line_items.data[0];
-    const productId = lineItem.price.product;
-
+    const productId = session.line_items.data[0].price.product;
     const pdfEntry = PDF_MAP[productId];
+
     if (!pdfEntry) {
       console.error("❌ No PDF configured for product ID:", productId);
       return { statusCode: 400, body: "Invalid product ID" };
@@ -70,29 +64,35 @@ export async function handler(event) {
     }
     const pdfBuffer = await res.buffer();
 
-    // Send email with the matching PDF
-    const msg = {
-      to: session.customer_email,
-      from: "you@yourdomain.com",
-      subject: "Your PDF from Smart Prompt Solutions",
-      text: "Thank you for your purchase! Please find your PDF attached.",
-      attachments: [
-        {
-          content: pdfBuffer.toString("base64"),
-          filename: pdfEntry.filename,
-          type: "application/pdf",
-          disposition: "attachment",
-        },
-      ],
-    };
+    // Send via Brevo (Sendinblue) REST API
+    const brevoRes = await fetch("https://api.sendinblue.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { email: "hello@smartpromptsolutions.com" },
+        to: [{ email: session.customer_email }],
+        subject: "Your PDF from Smart Prompt Solutions",
+        textContent: "Thank you for your purchase! Please find your PDF attached.",
+        attachment: [
+          {
+            content: pdfBuffer.toString("base64"),
+            name: pdfEntry.filename,
+            contentType: "application/pdf",
+          },
+        ],
+      }),
+    });
 
-    try {
-      await sgMail.send(msg);
-      console.log("📧 PDF email sent to:", session.customer_email);
-    } catch (emailErr) {
-      console.error("❌ Error sending email:", emailErr);
-      return { statusCode: 500, body: "Failed to send email" };
+    if (!brevoRes.ok) {
+      const errorText = await brevoRes.text();
+      console.error("❌ Brevo send error:", brevoRes.status, errorText);
+      return { statusCode: 500, body: "Email send failure" };
     }
+
+    console.log("📧 Brevo email sent to:", session.customer_email);
   }
 
   return { statusCode: 200, body: JSON.stringify({ received: true }) };
