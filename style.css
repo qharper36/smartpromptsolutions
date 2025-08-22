@@ -1329,32 +1329,3 @@ html {
   .element--3 { bottom: 10px; left: 20px; }
   .element--4 { top: 10px; left: 20px; }
 }
-.about-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    line-height: 1.6;
-}
-
-.about-section h2 {
-    color: #333;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.about-section h3 {
-    color: #2c5aa0;
-    font-size: 1.8em;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-}
-
-.about-section p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #555;
-    text-align: justify;
-}
