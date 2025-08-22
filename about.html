@@ -1,68 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us – Smart Prompt Solutions</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background-color: #f9f9f9;
-    }
-    header, footer {
-      background-color: #2c5aa0;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: #fff;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #2c5aa0;
-    }
-    .about-section {
-      line-height: 1.6;
-    }
-    .about-section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #333;
-    }
-    .about-section h3 {
-      font-size: 1.6em;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 8px;
-      color: #2c5aa0;
-    }
-    .about-section p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      text-align: justify;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Smart Prompt Solutions</title>
+  <!-- Main theme stylesheet with all variables, layouts, and components -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Smart Prompt Solutions</h1>
+  <!-- Site header/nav (same as homepage) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Smart Prompt Solutions</a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/products.html">Products</a>
+        <a href="/about.html" class="active">About</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <a href="/get-started.html" class="btn btn-primary">Get Started</a>
+    </div>
   </header>
 
-  <main>
-    <h1>About Us</h1>
-    <div class="about-section">
+  <!-- Hero Section (dark background) -->
+  <section class="hero hero-dark">
+    <div class="container">
+      <h1>About Us</h1>
+      <p class="subheading">Learn who we are and why we're on a mission to streamline your business with AI.</p>
+    </div>
+  </section>
+
+  <!-- About Content Module (light background) -->
+  <section class="module module-light">
+    <div class="container">
       <h2>About Smart Prompt Solutions</h2>
       <p>At Smart Prompt Solutions, we understand that time is your most valuable asset. As busy entrepreneurs and small business owners ourselves, we've experienced firsthand the challenges of juggling multiple responsibilities while trying to grow a successful business. That's what inspired us to create a solution that harnesses the power of AI to give you back those precious hours.</p>
 
@@ -81,12 +53,44 @@
       <h3>Join the Smart Business Revolution</h3>
       <p>Thousands of successful entrepreneurs have already transformed their businesses with our AI solutions. From automating marketing funnels to streamlining daily operations, our customers consistently report significant time savings and improved results. We invite you to join this growing community of smart business owners who are leveraging AI to work smarter, not harder.</p>
 
-      <p>Ready to reclaim your time and accelerate your business growth? Explore our professional AI prompt packs and discover how Smart Prompt Solutions can transform your daily operations.</p>
+      <p class="cta"><a href="/products.html" class="btn btn-primary">Browse Prompt Packs</a></p>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+  <!-- Why Choose Section (dark cards background) -->
+  <section class="module module-dark">
+    <div class="container">
+      <h2>Why Choose Smart Prompt Solutions?</h2>
+      <div class="card-grid">
+        <div class="card">
+          <i class="icon-time"></i>
+          <h3>Time-Saving Automation</h3>
+          <p>Automate repetitive content creation and marketing tasks with proven AI prompts.</p>
+        </div>
+        <div class="card">
+          <i class="icon-star"></i>
+          <h3>Professional Quality</h3>
+          <p>Business-focused prompts tested and optimized for real-world results.</p>
+        </div>
+        <div class="card">
+          <i class="icon-plug"></i>
+          <h3>Plug-and-Play Ready</h3>
+          <p>Copy, paste, and customize—no technical expertise required.</p>
+        </div>
+        <div class="card">
+          <i class="icon-target"></i>
+          <h3>Business-Focused Solutions</h3>
+          <p>Designed specifically for entrepreneurs and small business challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site footer (same as homepage) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
