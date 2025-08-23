@@ -904,6 +904,15 @@ html {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
+/* Hero background darker and subtitle brighter */
+.hero {
+  background-color: var(--color-slate-900);    /* solid dark base instead of gradient */
+  background-image: none;
+}
+.hero__subtitle {
+  color: var(--color-cream-100);               /* bright off-white */
+  opacity: 1 !important;                       /* remove any fade */
+}
 
 /* Section Styles */
 .section__title {
@@ -1329,9 +1338,18 @@ html {
   .element--3 { bottom: 10px; left: 20px; }
   .element--4 { top: 10px; left: 20px; }
 }
-/* Ensure about text is dark on light background */
+/* About section text dark on light surface */
+.about {
+  background-color: var(--color-surface) !important;
+}
 .about__content h2,
 .about__content h3,
 .about__content p {
-  color: var(--color-text) !important;  /* typically a dark value like --color-slate-900 */
+  color: var(--color-text) !important;         /* ensures dark text */
+  opacity: 1 !important;
 }
+.btn--primary {
+  background-color: var(--color-primary) !important;
+  color: var(--color-btn-primary-text) !important;
+}
+
