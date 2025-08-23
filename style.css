@@ -1329,3 +1329,9 @@ html {
   .element--3 { bottom: 10px; left: 20px; }
   .element--4 { top: 10px; left: 20px; }
 }
+/* Ensure about text is dark on light background */
+.about__content h2,
+.about__content h3,
+.about__content p {
+  color: var(--color-text) !important;  /* typically a dark value like --color-slate-900 */
+}
