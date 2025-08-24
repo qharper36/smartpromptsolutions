@@ -70,13 +70,12 @@
       <h3>Join the Smart Business Revolution</h3>
       <p>Thousands of successful entrepreneurs have already transformed their businesses with our AI solutions. From automating marketing funnels to streamlining daily operations, our customers consistently report significant time savings and improved results. We invite you to join this growing community of smart business owners who are leveraging AI to work smarter, not harder.</p>
 
-      <p style="text-align:center; margin-top:var(--space-24);">
-  <a href="index.html#products" class="btn btn--primary btn--lg" onclick="setTimeout(() => { document.getElementById('products').scrollIntoView({behavior: 'smooth', block: 'start'}); }, 100);">
+     <p style="text-align:center; margin-top:var(--space-24);">
+  <a href="index.html#products" class="btn btn--primary btn--lg" onclick="return handleProductsLink(event);">
     Browse Prompt Packs
   </a>
 </p>
-
-    </div>
+</div>
   </div>
 </section>
 
@@ -150,5 +149,45 @@
     });
   </script>
    <script src="app.js"></script>
+  <script>
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
+});
+
+// Fix products scroll position
+function handleProductsLink(event) {
+  event.preventDefault();
+  window.location.href = 'index.html';
+  
+  // Wait for page to load, then scroll to products with offset
+  setTimeout(function() {
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+      const headerHeight = 80; // Account for fixed header
+      const elementPosition = productsSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 500);
+  
+  return false;
+}
+</script>
+
+<script src="app.js"></script>
+
 </body>
 </html>
