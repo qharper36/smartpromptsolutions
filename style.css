@@ -1304,3 +1304,20 @@ main {
   background-color: #3cb8b2 !important;
   color: #000000 !important;
 }
+/* Force blog “Read More” buttons to match teal scheme */
+.blog .btn--outline,
+.blog .btn--outline:hover,
+.blog .btn--outline:focus {
+  background-color: #4fd1c7 !important;
+  color: #000 !important;
+  border-color: #4fd1c7 !important;
+}
+
+/* Ensure hero “Learn More” button also matches */
+.hero .btn--outline,
+.hero .btn--outline:hover,
+.hero .btn--outline:focus {
+  background-color: #4fd1c7 !important;
+  color: #000 !important;
+  border-color: #4fd1c7 !important;
+}
