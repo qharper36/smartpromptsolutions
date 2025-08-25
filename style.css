@@ -1321,3 +1321,15 @@ main {
   color: #000 !important;
   border-color: #4fd1c7 !important;
 }
+.nav__toggle .close-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.nav__toggle.active .hamburger-icon {
+  display: none;
+}
+.nav__toggle.active .close-icon {
+  display: block;
+}
