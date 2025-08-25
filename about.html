@@ -296,6 +296,65 @@ main {
 .hero__subtitle {
   opacity: 1 !important;
 }
+/* Make hero title visible on mobile */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+  }
+  
+  .hero__subtitle {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+}
+
+/* Make hamburger X button always visible */
+.nav__toggle span {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff !important;
+  margin: 2px 0;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3); /* subtle shadow for visibility */
+}
+
+/* Ensure X is visible when active */
+.nav__toggle.active span {
+  background-color: #ffffff !important;
+}
+
+/* Style Learn More button to match Browse Prompt Packs */
+.btn--outline {
+  background: #4fd1c7 !important;
+  color: #000000 !important;
+  border: 2px solid #4fd1c7 !important;
+  font-weight: 600;
+}
+
+.btn--outline:hover {
+  background: #3cb8b2 !important;
+  border-color: #3cb8b2 !important;
+  color: #000000 !important;
+}
+
+/* Mobile button adjustments */
+@media (max-width: 768px) {
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .btn--lg {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
 
 </style>
 
