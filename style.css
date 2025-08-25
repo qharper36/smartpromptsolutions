@@ -1368,8 +1368,3 @@ main {
   cursor: pointer;
 }
 
-/* Ensure parent UL is positioned relative */
-.nav__menu {
-  position: relative; /* already fixed on mobile, this anchors the close button */
-}
-
