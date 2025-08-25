@@ -1372,3 +1372,30 @@ main {
 .nav__menu {
   position: relative; /* already fixed on mobile, this anchors the close button */
 }
+/* Make menu container relative so absolute child anchors correctly */
+.nav__menu {
+  position: relative; /* Add this if not already present */
+}
+
+/* Position the close button in the top-right of the mobile menu */
+.nav__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: auto;
+  padding: 0;
+  text-align: right;
+  z-index: 1002; /* Above menu items */
+}
+.nav__close button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Push menu links down so they don't overlap the close button */
+.nav__menu .nav__item {
+  margin-top: 3rem; /* adjust if needed to clear the close button */
+}
