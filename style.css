@@ -1350,3 +1350,25 @@ main {
   /* hide close on desktop */
   .nav__close { display: none; }
 }
+/* Position mobile menu close button */
+.nav__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: auto;
+  padding: 0;
+  text-align: right;
+}
+
+.nav__close button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Ensure parent UL is positioned relative */
+.nav__menu {
+  position: relative; /* already fixed on mobile, this anchors the close button */
+}
