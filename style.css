@@ -1333,3 +1333,20 @@ main {
 .nav__toggle.active .close-icon {
   display: block;
 }
+/* Style the close button in the mobile menu */
+.nav__close {
+  width: 100%;
+  text-align: right;
+  padding: 0.5rem 1rem;
+}
+.nav__close button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+@media (min-width: 769px) {
+  /* hide close on desktop */
+  .nav__close { display: none; }
+}
