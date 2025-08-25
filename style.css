@@ -1352,3 +1352,76 @@ html {
   background-color: var(--color-primary) !important;
   color: var(--color-btn-primary-text) !important;
 }
+
+/* Fix header visibility and mobile menu */
+.header {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav__logo {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  display: block !important;
+}
+
+.nav__link {
+  color: #ffffff !important;
+  display: block !important;
+}
+
+.nav__link:hover {
+  color: #4fd1c7 !important;
+}
+
+.nav__link.active {
+  color: #4fd1c7 !important;
+}
+
+/* Fix mobile menu */
+@media (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #1a1a1a !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+    transition: left 0.3s ease;
+    z-index: 1001;
+    display: flex !important;
+  }
+  
+  .nav__menu.active {
+    left: 0;
+  }
+  
+  .nav__item {
+    margin-bottom: 1rem;
+    display: block !important;
+  }
+  
+  .nav__link {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Remove white space under header */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
