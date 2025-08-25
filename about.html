@@ -312,21 +312,6 @@ main {
   }
 }
 
-/* Make hamburger X button always visible */
-.nav__toggle span {
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff !important;
-  margin: 2px 0;
-  transition: all 0.15s ease;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3); /* subtle shadow for visibility */
-}
-
-/* Ensure X is visible when active */
-.nav__toggle.active span {
-  background-color: #ffffff !important;
-}
-
 /* Style Learn More button to match Browse Prompt Packs */
 .btn--outline {
   background: #4fd1c7 !important;
@@ -376,9 +361,9 @@ main {
   </li>
   <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
   <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
-  <li class="nav__item"><a href="about.html" class="nav__link active">About</a></li>
-  <li class="nav__item"><a href="index.html#blog" class="nav__link">Blog</a></li>
-  <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+  <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+  <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
+  <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
 </ul>
 
     <a href="index.html#contact" class="btn btn--primary nav__cta">Get Started</a>
