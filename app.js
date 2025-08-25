@@ -343,3 +343,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('💼 Professional AI Prompts for Business Automation');
     console.log('📧 Contact: hello@smartpromptsolutions.com');
 });
+document.getElementById('navClose').addEventListener('click', function() {
+  const navMenu = document.getElementById('navMenu');
+  const navToggle = document.getElementById('navToggle');
+  navMenu.classList.remove('active');
+  navToggle.classList.remove('active');
+});
