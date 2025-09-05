@@ -1,0 +1,64 @@
+{
+  "navigation_structure": {
+    "main_nav": [
+      {
+        "text": "Home",
+        "url": "/",
+        "type": "link"
+      },
+      {
+        "text": "Features",
+        "url": "/features",
+        "type": "link"
+      },
+      {
+        "text": "Pricing",
+        "url": "/pricing",
+        "type": "link"
+      },
+      {
+        "text": "Resources",
+        "url": "/resources",
+        "type": "dropdown",
+        "dropdown_items": [
+          {
+            "text": "Case Studies",
+            "url": "/case-studies"
+          },
+          {
+            "text": "FAQ",
+            "url": "/faq"
+          },
+          {
+            "text": "Blog",
+            "url": "/blog"
+          },
+          {
+            "text": "Documentation",
+            "url": "/documentation"
+          }
+        ]
+      },
+      {
+        "text": "Try Free",
+        "url": "/free-trial",
+        "type": "cta"
+      },
+      {
+        "text": "Contact",
+        "url": "/contact",
+        "type": "link"
+      }
+    ],
+    "footer_nav": [
+      {
+        "text": "Terms of Service",
+        "url": "/terms-of-service"
+      },
+      {
+        "text": "Privacy Policy",
+        "url": "/privacy-policy"
+      }
+    ]
+  }
+}

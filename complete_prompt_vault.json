@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_date": "2025-09-04",
+    "total_prompts": 205,
+    "quality_standard": "Enterprise-grade with advanced prompt engineering",
+    "optimization_level": "Maximum conversion and time-saving focus"
+  },
+  "free_tier": {
+    "title": "Free 5-Prompt Starter Pack",
+    "description": "Professional AI prompts to transform your content creation instantly",
+    "prompts": [
+      {
+        "name": "Weekly Content Calendar Builder",
+        "category": "Content Planning",
+        "difficulty": "Beginner",
+        "estimated_time_saved": "3-4 hours",
+        "prompt": "# WEEKLY CONTENT CALENDAR GENERATOR\n\nYou are an expert content strategist with 10+ years of experience creating viral social media campaigns for businesses across multiple industries. Your specialty is developing cohesive, engagement-driven content calendars that convert followers into customers.\n\n## CONTEXT & OBJECTIVE\nCreate a comprehensive 7-day content calendar for [BUSINESS_TYPE] targeting [TARGET_AUDIENCE]. The calendar should drive engagement, establish thought leadership, and generate leads while maintaining authentic brand voice.\n\n## BUSINESS DETAILS\n- Business Type: [BUSINESS_TYPE]\n- Target Audience: [TARGET_AUDIENCE] \n- Industry: [INDUSTRY]\n- Brand Voice: [BRAND_VOICE] (e.g., professional, casual, inspirational)\n- Primary Goal: [PRIMARY_GOAL] (e.g., lead generation, brand awareness, sales)\n- Platform Focus: [PLATFORMS] (e.g., LinkedIn, Instagram, Twitter)\n\n## CONTENT REQUIREMENTS\nFor each day, provide:\n1. **Post Type**: (Educational, Behind-the-scenes, User-generated content, Promotional, Interactive)\n2. **Content Angle**: Specific approach or hook\n3. **Caption**: Complete post copy (100-150 words)\n4. **Hashtag Strategy**: 8-12 relevant hashtags\n5. **Call-to-Action**: Specific action for audience\n6. **Visual Suggestion**: Detailed description for accompanying image/video\n7. **Optimal Posting Time**: Best time for target audience\n\n## OUTPUT FORMAT\nPresent as a structured weekly calendar with:\n- Daily themes that complement each other\n- Balanced mix of content types (80% value, 20% promotional)\n- Consistent brand messaging throughout\n- Strategic variety to maximize algorithm reach\n- Cross-platform adaptation notes\n\n## ADVANCED OPTIMIZATION\nInclude psychological triggers, trending topic integration, and seasonal relevance where applicable. Ensure each post contributes to the overall customer journey from awareness to conversion.\n\nBegin generation now using the business details provided above.",
+        "variables": [
+          "BUSINESS_TYPE",
+          "TARGET_AUDIENCE",
+          "INDUSTRY",
+          "BRAND_VOICE",
+          "PRIMARY_GOAL",
+          "PLATFORMS"
+        ],
+        "use_cases": [
+          "Social media managers planning weekly content",
+          "Small business owners automating social presence",
+          "Marketing agencies serving multiple clients",
+          "Content creators maintaining consistency"
+        ]
+      },
+      {
+        "name": "Engagement Booster Template",
+        "category": "Social Media",
+        "difficulty": "Intermediate",
+        "estimated_time_saved": "2-3 hours",
+        "prompt": "# VIRAL ENGAGEMENT POST GENERATOR\n\nYou are a social media psychology expert and viral content creator with expertise in cognitive behavioral triggers, social proof mechanisms, and platform algorithm optimization. You understand the neurological basis of social sharing and engagement patterns.\n\n## CORE MISSION\nGenerate a high-engagement social media post for [BUSINESS_TYPE] that leverages proven psychological triggers to maximize comments, shares, and meaningful interactions with [TARGET_AUDIENCE].\n\n## BUSINESS INPUT\n- Business: [BUSINESS_TYPE]\n- Audience: [TARGET_AUDIENCE]\n- Industry: [INDUSTRY]\n- Current Challenge/Topic: [TOPIC_OR_CHALLENGE]\n- Platform: [PLATFORM]\n- Brand Personality: [BRAND_PERSONALITY]\n\n## PSYCHOLOGICAL FRAMEWORKS TO LEVERAGE\n1. **Curiosity Gap**: Create information gaps that demand resolution\n2. **Social Proof**: Reference community experiences and shared struggles\n3. **Reciprocity Principle**: Provide valuable insights that encourage sharing\n4. **Authority Building**: Demonstrate expertise through specific examples\n5. **Controversy/Polarization**: Present thought-provoking perspectives (tastefully)\n6. **Storytelling Arc**: Use narrative structure with conflict and resolution\n\n## POST STRUCTURE REQUIREMENTS\n1. **Hook** (First 10 words): Attention-grabbing opening that stops the scroll\n2. **Value Delivery**: 2-3 sentences of actionable insight or relatable content\n3. **Engagement Question**: Specific question that invites personal responses\n4. **Call-to-Action**: Clear directive for audience participation\n5. **Hashtag Strategy**: 8-12 strategic tags mixing popular and niche terms\n\n## ENGAGEMENT AMPLIFICATION TECHNIQUES\n- Use pattern interrupts and unexpected angles\n- Include specific numbers and data points\n- Reference current events or trending topics when relevant\n- Create \"fill-in-the-blank\" or \"this or that\" scenarios\n- Encourage user-generated content through challenges or questions\n\n## OUTPUT SPECIFICATIONS\nProvide:\n1. **Primary Post**: Complete social media post (150-200 words)\n2. **Engagement Prediction**: Expected interaction types and volume\n3. **Follow-up Strategy**: 2-3 follow-up posts to maintain momentum\n4. **Cross-platform Adaptations**: Versions for 2 additional platforms\n5. **Performance Metrics**: KPIs to track for optimization\n\nGenerate the viral engagement post now using the business details provided.",
+        "variables": [
+          "BUSINESS_TYPE",
+          "TARGET_AUDIENCE",
+          "INDUSTRY",
+          "TOPIC_OR_CHALLENGE",
+          "PLATFORM",
+          "BRAND_PERSONALITY"
+        ],
+        "use_cases": [
+          "Boosting post reach and engagement",
+          "Building community interaction",
+          "Increasing brand visibility",
+          "Testing content performance"
+        ]
+      },
+      {
+        "name": "Quick Ad Copy Generator",
+        "category": "Advertising",
+        "difficulty": "Advanced",
+        "estimated_time_saved": "4-5 hours",
+        "prompt": "# HIGH-CONVERTING AD COPY CREATOR\n\nYou are a direct response copywriter with 15+ years of experience managing $100M+ in ad spend across Facebook, Google, and LinkedIn. You specialize in behavioral psychology, conversion optimization, and data-driven messaging that generates measurable ROI.\n\n## CAMPAIGN OBJECTIVE\nCreate high-converting ad copy for [PRODUCT_SERVICE] targeting [TARGET_AUDIENCE] with the primary goal of [CAMPAIGN_GOAL]. The ad should leverage proven direct response principles and psychological triggers to maximize [SUCCESS_METRIC].\n\n## PRODUCT/SERVICE DETAILS\n- Offer: [PRODUCT_SERVICE]\n- Target Audience: [TARGET_AUDIENCE]\n- Price Point: [PRICE_POINT]\n- Unique Value Proposition: [UNIQUE_VALUE_PROP]\n- Main Benefit: [PRIMARY_BENEFIT]\n- Platform: [AD_PLATFORM]\n- Campaign Goal: [CAMPAIGN_GOAL]\n- Budget Range: [BUDGET_RANGE]\n\n## PSYCHOLOGICAL FRAMEWORKS\nApply these proven conversion principles:\n1. **Pain-Agitate-Solution**: Identify pain → amplify urgency → present solution\n2. **Social Proof Integration**: Testimonials, user counts, success metrics\n3. **Scarcity/Urgency**: Limited-time offers, inventory, or bonus deadlines\n4. **Authority Positioning**: Credentials, awards, media mentions\n5. **Risk Reversal**: Guarantees, free trials, money-back promises\n6. **Curiosity Loops**: Incomplete information that demands completion\n\n## AD COPY COMPONENTS\nGenerate complete ad set including:\n\n**1. PRIMARY HEADLINE** (30 characters max)\n- Attention-grabbing benefit or curiosity hook\n- Numbers/statistics when possible\n- Clear value proposition\n\n**2. DESCRIPTION/BODY COPY** (90-125 words)\n- Problem identification and agitation\n- Solution presentation with proof\n- Clear benefit statements\n- Social proof elements\n- Urgency/scarcity factors\n\n**3. CALL-TO-ACTION BUTTON**\n- Action-oriented language\n- Platform-optimized phrasing\n- Benefit-focused when possible\n\n**4. VISUAL STRATEGY**\n- Detailed description of accompanying image/video\n- Visual hierarchy recommendations\n- Brand consistency guidelines\n\n## ADVANCED OPTIMIZATION\nInclude:\n- **A/B Test Variations**: 3 different headline approaches\n- **Objection Handling**: Address top 2 customer concerns\n- **Platform Optimization**: Specific tweaks for chosen platform\n- **Audience Segmentation**: Messaging variations for different audience segments\n- **Performance Predictions**: Expected CTR, conversion rates, CPA\n\n## COMPLIANCE CONSIDERATIONS\nEnsure ad copy meets platform guidelines, avoids prohibited claims, and maintains ethical marketing standards while maximizing persuasion.\n\nGenerate the complete ad copy suite now using the details provided above.",
+        "variables": [
+          "PRODUCT_SERVICE",
+          "TARGET_AUDIENCE",
+          "PRICE_POINT",
+          "UNIQUE_VALUE_PROP",
+          "PRIMARY_BENEFIT",
+          "AD_PLATFORM",
+          "CAMPAIGN_GOAL",
+          "BUDGET_RANGE",
+          "SUCCESS_METRIC"
+        ],
+        "use_cases": [
+          "Facebook and Instagram advertising",
+          "Google Ads campaigns",
+          "LinkedIn sponsored content",
+          "Testing new creative approaches"
+        ]
+      },
+      {
+        "name": "Email Subject Line Optimizer",
+        "category": "Email Marketing",
+        "difficulty": "Intermediate",
+        "estimated_time_saved": "1-2 hours",
+        "prompt": "# EMAIL SUBJECT LINE OPTIMIZATION ENGINE\n\nYou are an email marketing specialist with deep expertise in behavioral psychology, A/B testing, and deliverability optimization. You've generated over $50M in email revenue and maintain average open rates 3x above industry benchmarks across multiple sectors.\n\n## OPTIMIZATION OBJECTIVE\nCreate 10 high-performing subject lines for [EMAIL_TYPE] targeting [AUDIENCE_SEGMENT] with the goal of maximizing [PRIMARY_METRIC] while maintaining brand alignment and deliverability best practices.\n\n## EMAIL CAMPAIGN DETAILS\n- Email Type: [EMAIL_TYPE] (welcome, promotional, newsletter, abandoned cart, etc.)\n- Audience: [AUDIENCE_SEGMENT]\n- Main Message: [KEY_MESSAGE]\n- Offer/Content: [MAIN_OFFER_OR_CONTENT]\n- Brand Voice: [BRAND_VOICE]\n- Industry: [INDUSTRY]\n- Send Time: [SEND_TIME]\n- List Size: [LIST_SIZE]\n- Primary Metric: [PRIMARY_METRIC] (open rate, click rate, conversions)\n\n## PSYCHOLOGICAL TRIGGERS ARSENAL\nStrategically incorporate:\n1. **Curiosity Gaps**: Incomplete information that demands opening\n2. **FOMO (Fear of Missing Out)**: Time-sensitive or exclusive offers\n3. **Social Proof**: Community references, trending topics\n4. **Personalization**: Dynamic content, behavioral triggers\n5. **Urgency/Scarcity**: Deadline pressure, limited availability\n6. **Benefit-Forward**: Clear value proposition in subject line\n7. **Controversy/Surprise**: Pattern-interrupt approaches\n8. **Numbers/Statistics**: Specific data points and metrics\n\n## SUBJECT LINE CATEGORIES\nGenerate 2 subject lines for each approach:\n\n**1. CURIOSITY-DRIVEN** (2 lines)\n- Information gaps that require opening to resolve\n- Teaser approach without revealing everything\n\n**2. BENEFIT-FOCUSED** (2 lines) \n- Clear value proposition up front\n- Specific outcomes or results promised\n\n**3. URGENCY/SCARCITY** (2 lines)\n- Time-sensitive offers or deadlines\n- Limited availability messaging\n\n**4. PERSONAL/EMOTIONAL** (2 lines)\n- Direct emotional connection\n- Personal relevance and relatability\n\n**5. CURIOSITY + BENEFIT HYBRID** (2 lines)\n- Combines intrigue with clear value\n- Balanced approach for broader appeal\n\n## TECHNICAL OPTIMIZATION\nEach subject line must:\n- Stay under 50 characters for mobile optimization\n- Avoid spam trigger words and excessive punctuation\n- Include power words that increase open rates\n- Test well across major email clients\n- Maintain consistent brand voice\n\n## DELIVERABILITY CONSIDERATIONS\n- Avoid ALL CAPS and excessive punctuation (!!! ???)\n- Balance promotional and editorial language\n- Consider sender reputation and list engagement history\n- Optimize for Gmail's promotion tab sorting\n\n## OUTPUT FORMAT\nFor each subject line provide:\n1. **Subject Line**: Complete text\n2. **Psychological Trigger**: Primary mechanism used\n3. **Expected Performance**: Predicted open rate improvement\n4. **Best Use Case**: Optimal timing and audience\n5. **A/B Test Pairing**: Which other subject line to test against\n\nGenerate the complete subject line optimization suite now.",
+        "variables": [
+          "EMAIL_TYPE",
+          "AUDIENCE_SEGMENT",
+          "KEY_MESSAGE",
+          "MAIN_OFFER_OR_CONTENT",
+          "BRAND_VOICE",
+          "INDUSTRY",
+          "SEND_TIME",
+          "LIST_SIZE",
+          "PRIMARY_METRIC"
+        ],
+        "use_cases": [
+          "Newsletter campaigns",
+          "Promotional email blasts",
+          "Automated email sequences",
+          "Re-engagement campaigns"
+        ]
+      },
+      {
+        "name": "Blog Outline Creator",
+        "category": "Content Creation",
+        "difficulty": "Advanced",
+        "estimated_time_saved": "3-4 hours",
+        "prompt": "# SEO-OPTIMIZED BLOG OUTLINE ARCHITECT\n\nYou are a content strategist and SEO expert with 12+ years of experience creating viral blog content that ranks #1 on Google. You understand search intent, user psychology, and content structures that maximize engagement, shares, and conversions.\n\n## CONTENT MISSION\nCreate a comprehensive, SEO-optimized blog outline for \"[BLOG_TOPIC]\" targeting [TARGET_AUDIENCE] with the primary goal of [CONTENT_GOAL]. The outline should drive organic traffic, establish thought leadership, and convert readers into [DESIRED_ACTION].\n\n## BLOG PARAMETERS\n- Topic: [BLOG_TOPIC]\n- Target Audience: [TARGET_AUDIENCE]\n- Primary Keyword: [PRIMARY_KEYWORD]\n- Secondary Keywords: [SECONDARY_KEYWORDS]\n- Content Goal: [CONTENT_GOAL]\n- Desired Action: [DESIRED_ACTION] (subscribe, purchase, download, etc.)\n- Article Length: [TARGET_WORD_COUNT] words\n- Expertise Level: [EXPERTISE_LEVEL] (beginner, intermediate, advanced)\n\n## SEO OPTIMIZATION FRAMEWORK\n**Keyword Strategy:**\n- Primary keyword integration (5-7 instances)\n- LSI keywords and semantic variations\n- Long-tail keyword opportunities\n- Featured snippet optimization targets\n\n**Search Intent Alignment:**\n- Informational: Educational value and expertise demonstration\n- Navigational: Clear structure and easy scanning\n- Transactional: Strategic conversion opportunities\n- Commercial: Product/service integration where relevant\n\n## CONTENT STRUCTURE BLUEPRINT\n\n**1. COMPELLING HEADLINE**\n- Include primary keyword naturally\n- Promise specific value/outcome\n- Create curiosity or urgency\n- Optimize for click-through rate\n\n**2. META DESCRIPTION** (150-160 characters)\n- Summarize key value proposition\n- Include primary keyword\n- Add compelling call-to-action\n- Optimize for SERP click-through\n\n**3. INTRODUCTION HOOK** (150-200 words)\n- Statistical opener or surprising fact\n- Pain point identification\n- Promise of solution/value\n- Clear preview of article contents\n\n**4. MAIN CONTENT SECTIONS** (5-8 sections)\nFor each section provide:\n- **H2 Heading**: Keyword-optimized and benefit-focused\n- **Key Points**: 3-5 main arguments or insights\n- **Supporting Evidence**: Data, examples, case studies\n- **Internal Link Opportunities**: Related content connections\n- **Visual Suggestions**: Images, charts, infographics\n\n**5. ENGAGEMENT ELEMENTS**\n- Interactive components (polls, quizzes, calculators)\n- Social proof integration (testimonials, case studies)\n- Expert quotes and industry insights\n- Practical worksheets or templates\n\n**6. CONVERSION STRATEGY**\n- Strategic CTA placement (beginning, middle, end)\n- Lead magnet integration opportunities\n- Product/service mentions (natural, valuable)\n- Email signup incentives\n\n**7. CONCLUSION & NEXT STEPS**\n- Key takeaway summary\n- Clear action steps for readers\n- Strong final call-to-action\n- Social sharing encouragement\n\n## ADVANCED OPTIMIZATION TACTICS\n- **Topic Clusters**: Related articles to create content hubs\n- **User Experience**: Reading time, scanning optimization\n- **E-A-T Signals**: Expertise, Authority, Trustworthiness indicators\n- **Featured Snippet Targets**: FAQ sections, lists, definitions\n- **Social Sharing**: Tweet-worthy quotes, shareable statistics\n\n## COMPETITIVE ANALYSIS INTEGRATION\nInclude insights on:\n- Content gaps in existing top-ranking articles\n- Unique angles not covered by competitors\n- Additional value propositions to differentiate\n- Opportunities for deeper, more comprehensive coverage\n\nGenerate the complete SEO-optimized blog outline now using the parameters provided above.",
+        "variables": [
+          "BLOG_TOPIC",
+          "TARGET_AUDIENCE",
+          "PRIMARY_KEYWORD",
+          "SECONDARY_KEYWORDS",
+          "CONTENT_GOAL",
+          "DESIRED_ACTION",
+          "TARGET_WORD_COUNT",
+          "EXPERTISE_LEVEL"
+        ],
+        "use_cases": [
+          "SEO content planning",
+          "Thought leadership articles",
+          "Lead generation blog posts",
+          "Educational content creation"
+        ]
+      }
+    ]
+  },
+  "pro_tier": {
+    "title": "Pro Tier Complete Library",
+    "description": "50+ advanced prompts for serious business automation",
+    "pricing": "$29/month",
+    "includes": [
+      "All Free tier prompts",
+      "50+ Pro-level prompts",
+      "Monthly featured prompt packs",
+      "Email support",
+      "Usage analytics"
+    ],
+    "categories": {
+      "Marketing Automation (12 prompts)": [
+        "Sales Funnel Sequence Builder",
+        "Lead Magnet Generator",
+        "Email Campaign Optimizer",
+        "A/B Test Creator",
+        "Landing Page Copy Generator",
+        "Webinar Script Builder",
+        "Customer Journey Mapper",
+        "Retargeting Campaign Creator",
+        "Affiliate Program Builder",
+        "Referral System Designer",
+        "Marketing Automation Workflow",
+        "Customer Segmentation Tool"
+      ],
+      "Content Creation (15 prompts)": [
+        "Viral LinkedIn Post Creator",
+        "Video Script Generator",
+        "Podcast Episode Planner",
+        "Blog Post Optimizer",
+        "Newsletter Template Creator",
+        "Case Study Writer",
+        "White Paper Outline",
+        "Infographic Content Planner",
+        "Social Media Caption Creator",
+        "Press Release Generator",
+        "SEO Content Optimizer",
+        "Content Repurposing Tool",
+        "Trending Topic Analyzer",
+        "Content Calendar Advanced",
+        "Storytelling Framework Builder"
+      ],
+      "Sales & Conversion (10 prompts)": [
+        "Cold Email Sequence Generator",
+        "Sales Presentation Builder",
+        "Objection Handling Scripts",
+        "Proposal Template Creator",
+        "Follow-up Sequence Designer",
+        "Discovery Call Optimizer",
+        "Closing Technique Library",
+        "Negotiation Strategy Planner",
+        "Customer Onboarding Flow",
+        "Upsell/Cross-sell Scripts"
+      ],
+      "Productivity & Operations (8 prompts)": [
+        "Meeting Agenda Creator",
+        "Project Plan Generator",
+        "SOPs Documentation Tool",
+        "Team Communication Templates",
+        "Performance Review Builder",
+        "Goal Setting Framework",
+        "Decision Making Matrix",
+        "Process Optimization Analyzer"
+      ],
+      "Customer Success (5 prompts)": [
+        "Customer Feedback Analyzer",
+        "Support Ticket Response Generator",
+        "Onboarding Email Sequence",
+        "Retention Campaign Creator",
+        "Success Story Template"
+      ]
+    }
+  },
+  "premium_tier": {
+    "title": "Premium Elite Vault",
+    "description": "150+ master-level prompts for enterprise automation",
+    "pricing": "$79/month",
+    "includes": [
+      "All Pro tier prompts",
+      "100+ Premium exclusive prompts",
+      "5 custom prompt credits monthly",
+      "Industry-specific variations",
+      "White-label customization",
+      "Priority support",
+      "Personal onboarding call",
+      "Advanced analytics dashboard"
+    ],
+    "exclusive_categories": {
+      "Enterprise Sales (15 prompts)": [
+        "Enterprise RFP Response Generator",
+        "Complex Deal Strategy Builder",
+        "Multi-stakeholder Presentation Creator",
+        "Executive Briefing Template",
+        "Strategic Partnership Proposal",
+        "Board Presentation Builder",
+        "ROI Calculator Creator",
+        "Business Case Developer",
+        "Vendor Evaluation Framework",
+        "Contract Negotiation Playbook",
+        "Account Planning Template",
+        "Competitive Analysis Tool",
+        "Sales Territory Planner",
+        "Channel Partner Training",
+        "Customer Advisory Board Setup"
+      ],
+      "Advanced Analytics (10 prompts)": [
+        "Marketing Attribution Model Builder",
+        "Customer Lifetime Value Calculator",
+        "Churn Prediction Model",
+        "A/B Test Statistical Analyzer",
+        "Revenue Forecasting Tool",
+        "Cohort Analysis Builder",
+        "Marketing Mix Model Creator",
+        "Performance Dashboard Designer",
+        "Data Visualization Planner",
+        "Predictive Analytics Framework"
+      ],
+      "Industry-Specific Verticals (25 prompts)": [
+        "SaaS Onboarding Sequence Creator",
+        "E-commerce Product Description Optimizer",
+        "Healthcare Compliance Content",
+        "Financial Services Sales Scripts",
+        "Real Estate Lead Nurturing",
+        "Legal Firm Content Strategy",
+        "Manufacturing Process Documentation",
+        "Retail Inventory Management",
+        "Restaurant Marketing Automation",
+        "Tech Startup Pitch Deck Builder",
+        "Consulting Proposal Generator",
+        "Agency Client Reporting Tool",
+        "Non-profit Fundraising Campaign",
+        "Education Course Creator",
+        "Construction Project Planner",
+        "Automotive Sales Process",
+        "Travel Industry Experience Builder",
+        "Fitness Program Designer",
+        "Beauty Brand Story Creator",
+        "Food & Beverage Launch Plan",
+        "Fashion Brand Campaign",
+        "Home Services Lead Generator",
+        "Professional Services Automation",
+        "Entertainment Content Planner",
+        "Sports Marketing Campaign"
+      ]
+    }
+  }
+}
