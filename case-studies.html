@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Smart Prompt Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .case-studies-section {
+            padding: 4rem 0;
+        }
+
+        .case-study {
+            background: white;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .case-study-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .client-logo {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .client-info h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .client-info p {
+            color: #666;
+        }
+
+        .case-study-content {
+            padding: 2rem;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .challenge-section,
+        .solution-section {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .challenge-section {
+            border-left: 4px solid #ef4444;
+        }
+
+        .solution-section {
+            border-left: 4px solid #10b981;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .results-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .result-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+        }
+
+        .testimonial {
+            background: #f0f4ff;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+            margin: 2rem 0;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        .prompts-used {
+            margin-top: 2rem;
+        }
+
+        .prompt-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .prompt-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .prompt-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button.primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .cta-button.primary:hover {
+            background: #5a6fd8;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .cta-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 1rem;
+            text-align: center;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .case-study-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Smart Prompt Solutions</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Real Results from Real Businesses</h1>
+            <p>See how entrepreneurs and businesses are transforming their content creation with Smart Prompt Solutions</p>
+        </div>
+    </section>
+
+    <section class="case-studies-section">
+        <div class="container">
+            <!-- Case Study 1 -->
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="client-logo">SC</div>
+                    <div class="client-info">
+                        <h2>Sarah Chen Marketing</h2>
+                        <p>Digital Marketing Consultant • 2 years in business</p>
+                    </div>
+                </div>
+
+                <div class="case-study-content">
+                    <div class="case-study-grid">
+                        <div class="challenge-section">
+                            <div class="section-title">🎯 Challenge</div>
+                            <p>Sarah was spending 15+ hours weekly creating content for her clients across multiple industries. She struggled to maintain consistent quality while scaling her consultancy. Manual content creation was becoming a bottleneck that prevented her from taking on new clients.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>Limited time for strategic work</li>
+                                <li>Inconsistent content quality</li>
+                                <li>Difficulty scaling client base</li>
+                                <li>Burnout from repetitive tasks</li>
+                            </ul>
+                        </div>
+
+                        <div class="solution-section">
+                            <div class="section-title">💡 Solution</div>
+                            <p>Sarah implemented our Marketing Automation Pack and Small Business Content Pack. She streamlined her content creation process by using our templates for email campaigns, social media posts, and ad copy across all client accounts.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>Standardized workflow with proven prompts</li>
+                                <li>Batch content creation sessions</li>
+                                <li>Customized prompts for each industry</li>
+                                <li>Automated content calendar planning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <div class="section-title" style="color: white;">📈 Results</div>
+                        <div class="results-grid">
+                            <div class="result-stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Time Savings</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">40%</div>
+                                <div class="stat-label">More Clients</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">3x</div>
+                                <div class="stat-label">Content Output</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">25%</div>
+                                <div class="stat-label">Better Engagement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        "Smart Prompt Solutions completely transformed my business. I went from spending entire days writing content to producing the same quality in just 2 hours. The prompts are so well-crafted that my clients actually commented on the improved consistency and professionalism of their content."
+                        <div class="testimonial-author">— Sarah Chen, Marketing Consultant</div>
+                    </div>
+
+                    <div class="prompts-used">
+                        <div class="section-title">🤖 Key Prompts Used</div>
+                        <div class="prompt-list">
+                            <div class="prompt-item">
+                                <h4>Email Campaign Generator</h4>
+                                <p>Automated sequence creation for different industries and audiences</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Social Media Content Calendar</h4>
+                                <p>Month-long content planning with industry-specific themes</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Ad Copy Optimizer</h4>
+                                <p>High-converting Facebook and Google Ads for multiple verticals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="client-logo">TR</div>
+                    <div class="client-info">
+                        <h2>TechRise Startup</h2>
+                        <p>B2B SaaS Company • Seed Stage</p>
+                    </div>
+                </div>
+
+                <div class="case-study-content">
+                    <div class="case-study-grid">
+                        <div class="challenge-section">
+                            <div class="section-title">🎯 Challenge</div>
+                            <p>As a early-stage startup, TechRise had limited resources for content marketing. The founding team needed to create consistent, professional content for lead generation while focusing on product development. They lacked the expertise to write effective sales copy.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>Small team wearing multiple hats</li>
+                                <li>Limited marketing budget</li>
+                                <li>No dedicated content writer</li>
+                                <li>Need for technical content expertise</li>
+                            </ul>
+                        </div>
+
+                        <div class="solution-section">
+                            <div class="section-title">💡 Solution</div>
+                            <p>TechRise adopted our complete prompt library, focusing on B2B lead generation prompts, product description templates, and technical content creation. They used our prompts to create blog posts, whitepapers, and sales materials.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>B2B-focused content strategy</li>
+                                <li>Technical documentation prompts</li>
+                                <li>Lead magnet creation templates</li>
+                                <li>Sales sequence automation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <div class="section-title" style="color: white;">📈 Results</div>
+                        <div class="results-grid">
+                            <div class="result-stat">
+                                <div class="stat-number">150%</div>
+                                <div class="stat-label">Lead Increase</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">60%</div>
+                                <div class="stat-label">Conversion Rate</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">$50K</div>
+                                <div class="stat-label">Revenue in 3 Months</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">12hrs</div>
+                                <div class="stat-label">Weekly Time Saved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        "As a technical founder, writing marketing copy was my nightmare. These prompts gave us professional-grade content that actually converts. We closed our first major enterprise deal with a proposal created using the B2B sales prompts. Worth every penny!"
+                        <div class="testimonial-author">— Mike Rodriguez, Co-founder, TechRise</div>
+                    </div>
+
+                    <div class="prompts-used">
+                        <div class="section-title">🤖 Key Prompts Used</div>
+                        <div class="prompt-list">
+                            <div class="prompt-item">
+                                <h4>B2B Lead Generation</h4>
+                                <p>Cold outreach sequences that generated 40+ qualified leads monthly</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Product Feature Descriptions</h4>
+                                <p>Technical features translated into customer benefits</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Whitepaper Creator</h4>
+                                <p>Authority-building technical content for lead magnets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="client-logo">LK</div>
+                    <div class="client-info">
+                        <h2>Lisa's Lifestyle Blog</h2>
+                        <p>Content Creator & Influencer • 50K Followers</p>
+                    </div>
+                </div>
+
+                <div class="case-study-content">
+                    <div class="case-study-grid">
+                        <div class="challenge-section">
+                            <div class="section-title">🎯 Challenge</div>
+                            <p>Lisa was struggling with content burnout while trying to maintain daily posts across multiple platforms. She needed to create engaging content consistently while monetizing her audience through affiliate marketing and sponsorships.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>Daily content creation pressure</li>
+                                <li>Maintaining authentic voice at scale</li>
+                                <li>Improving monetization strategies</li>
+                                <li>Cross-platform content adaptation</li>
+                            </ul>
+                        </div>
+
+                        <div class="solution-section">
+                            <div class="section-title">💡 Solution</div>
+                            <p>Lisa used our Productivity Booster Pack and social media prompts to plan months of content in advance. She leveraged our engagement-focused templates to increase audience interaction and conversion-optimized prompts for affiliate content.</p>
+                            <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                                <li>Batch content planning system</li>
+                                <li>Engagement-optimized templates</li>
+                                <li>Affiliate marketing copy prompts</li>
+                                <li>Cross-platform content adaptation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <div class="section-title" style="color: white;">📈 Results</div>
+                        <div class="results-grid">
+                            <div class="result-stat">
+                                <div class="stat-number">300%</div>
+                                <div class="stat-label">Engagement Rate</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">75%</div>
+                                <div class="stat-label">More Followers</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">$8K</div>
+                                <div class="stat-label">Monthly Affiliate Income</div>
+                            </div>
+                            <div class="result-stat">
+                                <div class="stat-number">20hrs</div>
+                                <div class="stat-label">Weekly Time Saved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        "I was on the verge of quitting content creation because of burnout. These prompts saved my career! I now create better content in less time, and my audience engagement has never been higher. The affiliate marketing prompts alone paid for my subscription 10x over."
+                        <div class="testimonial-author">— Lisa Kim, Content Creator</div>
+                    </div>
+
+                    <div class="prompts-used">
+                        <div class="section-title">🤖 Key Prompts Used</div>
+                        <div class="prompt-list">
+                            <div class="prompt-item">
+                                <h4>Viral Content Ideas</h4>
+                                <p>Trending topic adaptation for lifestyle and wellness niches</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Engagement Hooks</h4>
+                                <p>Compelling opening lines that boost comments and shares</p>
+                            </div>
+                            <div class="prompt-item">
+                                <h4>Affiliate Review Templates</h4>
+                                <p>Authentic product reviews that convert without being pushy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Content Creation?</h2>
+            <p>Join thousands of successful entrepreneurs who are saving time and growing their businesses with our proven AI prompts. Start with our free sample pack and experience the difference quality prompts can make.</p>
+            <div class="cta-buttons">
+                <a href="/free-trial" class="cta-button primary">Get Free Sample Pack</a>
+                <a href="/pricing" class="cta-button secondary">View All Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="/features">Features</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/prompt-library">Prompt Library</a></li>
+                        <li><a href="/free-trial">Free Sample</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/documentation">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
