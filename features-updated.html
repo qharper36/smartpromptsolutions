@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - Smart Prompt Solutions</title>
+  <meta name="description" content="Discover powerful features of Smart Prompt Solutions - professional AI prompts, automation tools, and business-focused templates designed for entrepreneurs.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      min-height: 60px;
+    }
+
+    .nav__brand {
+      flex-shrink: 0;
+    }
+
+    .nav__logo {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav__menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav__item {
+      margin: 0;
+    }
+
+    .nav__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+
+    .nav__link:hover {
+      color: #4fd1c7;
+    }
+
+    .nav__link.active {
+      color: #4fd1c7;
+    }
+
+    .nav__cta {
+      background-color: #4fd1c7;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav__cta:hover {
+      background: #3cb8b2;
+    }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 2px 0;
+      transition: all 0.15s ease;
+      border-radius: 2px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .nav__menu .dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      z-index: 2000;
+    }
+
+    .nav__menu .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+
+    .nav__menu .dropdown-menu li {
+      margin: 0;
+    }
+
+    .nav__menu .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav__menu .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #4fd1c7 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Features Grid */
+    .features-section {
+      padding: 80px 0;
+    }
+
+    .section__title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .feature__card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(79, 209, 199, 0.2);
+    }
+
+    .feature__icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .feature__title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #4fd1c7;
+    }
+
+    .feature__description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    /* Prompt Packs Section */
+    .prompt-packs-section {
+      background: #0f0f0f;
+      padding: 80px 0;
+    }
+
+    .packs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pack-card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .pack-card.featured {
+      border: 2px solid #4fd1c7;
+    }
+
+    .pack-card.featured::before {
+      content: "MOST POPULAR";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4fd1c7;
+      color: #000;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+
+    .pack-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(79, 209, 199, 0.2);
+    }
+
+    .pack-title {
+      font-size: 1.5rem;
+      color: #4fd1c7;
+      margin-bottom: 0.5rem;
+    }
+
+    .pack-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .pack-description {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .pack-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pack-features li {
+      padding: 0.25rem 0;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+    }
+
+    .pack-features li::before {
+      content: "✓";
+      color: #4fd1c7;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .btn--primary {
+      background: #4fd1c7;
+      color: #000000;
+    }
+
+    .btn--primary:hover {
+      background: #3cb8b2;
+      transform: translateY(-2px);
+    }
+
+    .btn--full-width {
+      width: 100%;
+    }
+
+    /* Detailed Features */
+    .detailed-features {
+      background: #1a1a1a;
+      padding: 80px 0;
+    }
+
+    .feature-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .feature-detail:nth-child(even) {
+      direction: rtl;
+    }
+
+    .feature-detail:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .feature-content h3 {
+      font-size: 2rem;
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+    }
+
+    .feature-content p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: #4fd1c7;
+      font-weight: bold;
+      margin-right: 0.75rem;
+    }
+
+    .feature-visual {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-visual-icon {
+      font-size: 4rem;
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #4fd1c7 0%, #3cb8b2 100%);
+      padding: 60px 0;
+      text-align: center;
+      color: #000000;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .btn--secondary {
+      background: transparent;
+      color: #000000;
+      border: 2px solid #000000;
+      margin: 0 0.5rem;
+    }
+
+    .btn--secondary:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0f0f0f;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer__section h3 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+    }
+
+    .footer__section ul {
+      list-style: none;
+    }
+
+    .footer__section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer__section ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer__section ul li a:hover {
+      color: #4fd1c7;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+      }
+
+      .nav__menu.active {
+        left: 0;
+      }
+
+      .nav__item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav__link {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+        display: block;
+        width: 100%;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .nav__toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 4px);
+      }
+
+      .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav__toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -4px);
+      }
+
+      .hero__title {
+        font-size: 2.5rem;
+      }
+
+      .feature-detail {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .feature-detail:nth-child(even) {
+        direction: ltr;
+      }
+
+      .nav__menu .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+      }
+
+      .packs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li class="nav__item nav__close">
+          <button id="navClose" aria-label="Close menu">×</button>
+        </li>
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="features.html" class="nav__link active">Features</a></li>
+        <li class="nav__item"><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li class="nav__item dropdown">
+          <a href="#!" class="nav__link dropdown-toggle">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+            <li><a href="faq.html" class="nav__link">FAQ</a></li>
+            <li><a href="blog.html" class="nav__link">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="free-trial.html" class="btn nav__cta">Try Free</a>
+      <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Powerful Features for Business Automation</h1>
+        <p class="hero__subtitle">Discover how Smart Prompt Solutions transforms your workflow with AI-powered prompts designed specifically for entrepreneurs and business owners</p>
+      </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="features-section">
+      <div class="container">
+        <h2 class="section__title">Core Features</h2>
+        <div class="features__grid">
+          <div class="feature__card">
+            <span class="feature__icon">🤖</span>
+            <h3 class="feature__title">150+ Professional Prompts</h3>
+            <p class="feature__description">Comprehensive library of business-tested AI prompts covering marketing, sales, content creation, and operations. Each prompt is optimized for maximum results.</p>
+          </div>
+
+          <div class="feature__card">
+            <span class="feature__icon">⚡</span>
+            <h3 class="feature__title">Instant Copy & Paste</h3>
+            <p class="feature__description">Ready-to-use prompts that require no technical knowledge. Simply copy, customize with your business details, and paste into any AI tool.</p>
+          </div>
+
+          <div class="feature__card">
+            <span class="feature__icon">🎯</span>
+            <h3 class="feature__title">Business-Focused Templates</h3>
+            <p class="feature__description">Unlike generic prompts, ours are specifically designed for real business challenges faced by entrepreneurs and small business owners.</p>
+          </div>
+
+          <div class="feature__card">
+            <span class="feature__icon">📊</span>
+            <h3 class="feature__title">Performance Analytics</h3>
+            <p class="feature__description">Track which prompts save you the most time and generate the best results with our built-in usage analytics and performance metrics.</p>
+          </div>
+
+          <div class="feature__card">
+            <span class="feature__icon">🔄</span>
+            <h3 class="feature__title">Regular Updates</h3>
+            <p class="feature__description">New prompts added monthly based on latest AI developments and user feedback. Your library keeps growing with fresh, proven content.</p>
+          </div>
+
+          <div class="feature__card">
+            <span class="feature__icon">👥</span>
+            <h3 class="feature__title">Team Collaboration</h3>
+            <p class="feature__description">Share prompts with your team, create custom folders, and maintain consistency across all your business communications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prompt Packs Section -->
+    <section class="prompt-packs-section">
+      <div class="container">
+        <h2 class="section__title">Our AI Prompt Packs</h2>
+        <p style="text-align: center; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 2rem;">Choose from our professionally crafted prompt collections designed for different business needs</p>
+
+        <div class="packs-grid">
+          <div class="pack-card">
+            <h3 class="pack-title">Productivity Booster Pack</h3>
+            <div class="pack-price">$27</div>
+            <p class="pack-description">A versatile toolkit of 10 AI prompts for daily planning: morning briefings, meeting agendas, to-do lists, workflow optimization, and end-of-day retrospectives.</p>
+            <ul class="pack-features">
+              <li>10 productivity-focused prompts</li>
+              <li>Daily planning templates</li>
+              <li>Meeting agenda generators</li>
+              <li>Workflow optimization tools</li>
+              <li>Time management frameworks</li>
+            </ul>
+            <a href="https://payhip.com/b/grQD6" class="btn btn--primary btn--full-width">Buy Now</a>
+          </div>
+
+          <div class="pack-card">
+            <h3 class="pack-title">Small Business Content Pack</h3>
+            <div class="pack-price">$37</div>
+            <p class="pack-description">10 professional AI prompts for email campaigns, product descriptions, and social media content—designed to save you hours each week.</p>
+            <ul class="pack-features">
+              <li>10 content creation prompts</li>
+              <li>Email campaign templates</li>
+              <li>Product description generators</li>
+              <li>Social media content ideas</li>
+              <li>Marketing copy frameworks</li>
+            </ul>
+            <a href="https://payhip.com/b/fIp54" class="btn btn--primary btn--full-width">Buy Now</a>
+          </div>
+
+          <div class="pack-card featured">
+            <h3 class="pack-title">Marketing Automation Pack</h3>
+            <div class="pack-price">$47</div>
+            <p class="pack-description">A comprehensive collection of 12 AI prompt templates to automate your entire marketing funnel: outreach sequences, lead-generation ads, customer-engagement workflows, and dynamic A/B tests.</p>
+            <ul class="pack-features">
+              <li>12 advanced marketing prompts</li>
+              <li>Lead generation sequences</li>
+              <li>Email automation workflows</li>
+              <li>A/B testing frameworks</li>
+              <li>Customer engagement tools</li>
+              <li>Sales funnel optimization</li>
+            </ul>
+            <a href="https://payhip.com/b/fvLrw" class="btn btn--primary btn--full-width">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Features -->
+    <section class="detailed-features">
+      <div class="container">
+        <div class="feature-detail">
+          <div class="feature-content">
+            <h3>Marketing Automation Made Simple</h3>
+            <p>Transform your marketing workflow with prompts that generate high-converting campaigns in minutes, not hours.</p>
+            <ul class="feature-list">
+              <li>Email sequence generators for any industry</li>
+              <li>Social media content calendars</li>
+              <li>Ad copy that converts at 25%+ higher rates</li>
+              <li>Lead magnet creation templates</li>
+              <li>Customer journey mapping prompts</li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <span class="feature-visual-icon">📧</span>
+            <h4>Email Campaign Generator</h4>
+            <p>Create 5-email sequences in under 10 minutes</p>
+          </div>
+        </div>
+
+        <div class="feature-detail">
+          <div class="feature-content">
+            <h3>Content Creation at Scale</h3>
+            <p>Never run out of content ideas again. Generate blog posts, social media content, and marketing materials that engage your audience.</p>
+            <ul class="feature-list">
+              <li>SEO-optimized blog post outlines</li>
+              <li>Viral social media post templates</li>
+              <li>Product description generators</li>
+              <li>Video script creators</li>
+              <li>Newsletter content planners</li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <span class="feature-visual-icon">✍️</span>
+            <h4>Content Calendar Builder</h4>
+            <p>30 days of content planned in 15 minutes</p>
+          </div>
+        </div>
+
+        <div class="feature-detail">
+          <div class="feature-content">
+            <h3>Sales Process Optimization</h3>
+            <p>Close more deals with prompts that handle objections, create compelling proposals, and nurture prospects automatically.</p>
+            <ul class="feature-list">
+              <li>Cold outreach sequences that get responses</li>
+              <li>Objection handling scripts</li>
+              <li>Proposal and contract templates</li>
+              <li>Follow-up automation prompts</li>
+              <li>Customer onboarding flows</li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <span class="feature-visual-icon">💰</span>
+            <h4>Sales Funnel Creator</h4>
+            <p>Complete sales processes in 30 minutes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Join thousands of entrepreneurs who save 10+ hours weekly with our professional AI prompts</p>
+        <div>
+          <a href="free-trial.html" class="btn btn--primary">Start Free Trial</a>
+          <a href="pricing.html" class="btn btn--secondary">View Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+            <li><a href="free-trial.html">Free Sample</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navClose = document.getElementById('navClose');
+
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+
+        if (navClose) {
+          navClose.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

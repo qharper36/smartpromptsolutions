@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Smart Prompt Solutions</title>
+  <meta name="description" content="Frequently asked questions about Smart Prompt Solutions. Get answers about pricing, features, usage, and more.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      min-height: 60px;
+    }
+
+    .nav__brand {
+      flex-shrink: 0;
+    }
+
+    .nav__logo {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav__menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav__item {
+      margin: 0;
+    }
+
+    .nav__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+
+    .nav__link:hover {
+      color: #4fd1c7;
+    }
+
+    .nav__link.active {
+      color: #4fd1c7;
+    }
+
+    .nav__cta {
+      background-color: #4fd1c7;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav__cta:hover {
+      background: #3cb8b2;
+    }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 2px 0;
+      transition: all 0.15s ease;
+      border-radius: 2px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .nav__menu .dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      z-index: 2000;
+    }
+
+    .nav__menu .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+
+    .nav__menu .dropdown-menu li {
+      margin: 0;
+    }
+
+    .nav__menu .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav__menu .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #4fd1c7 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 0;
+    }
+
+    .section__title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .category-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #4fd1c7;
+      color: #000000;
+      border-color: #4fd1c7;
+    }
+
+    .search-box {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 1rem;
+      background: #2a2a2a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #4fd1c7;
+      box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: #2a2a2a;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: #4fd1c7;
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      display: none;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: #4fd1c7;
+      transition: transform 0.3s;
+      font-weight: bold;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #4fd1c7 0%, #3cb8b2 100%);
+      padding: 60px 0;
+      text-align: center;
+      color: #000000;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin: 0 0.5rem;
+    }
+
+    .btn--primary {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .btn--primary:hover {
+      background: #333333;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0f0f0f;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer__section h3 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+    }
+
+    .footer__section ul {
+      list-style: none;
+    }
+
+    .footer__section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer__section ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer__section ul li a:hover {
+      color: #4fd1c7;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+      }
+
+      .nav__menu.active {
+        left: 0;
+      }
+
+      .nav__item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav__link {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+        display: block;
+        width: 100%;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .nav__toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 4px);
+      }
+
+      .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav__toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -4px);
+      }
+
+      .hero__title {
+        font-size: 2.5rem;
+      }
+
+      .faq-categories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .category-btn {
+        width: 200px;
+        text-align: center;
+      }
+
+      .nav__menu .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li class="nav__item nav__close">
+          <button id="navClose" aria-label="Close menu">×</button>
+        </li>
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="features.html" class="nav__link">Features</a></li>
+        <li class="nav__item"><a href="pricing.html" class="nav__link">Pricing</a></li>
+        <li class="nav__item dropdown">
+          <a href="#!" class="nav__link dropdown-toggle active">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+            <li><a href="faq.html" class="nav__link active">FAQ</a></li>
+            <li><a href="blog.html" class="nav__link">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="free-trial.html" class="btn nav__cta">Try Free</a>
+      <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Frequently Asked Questions</h1>
+        <p class="hero__subtitle">Find answers to common questions about Smart Prompt Solutions, our features, pricing, and how to get the most out of our AI prompts.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-container">
+          <div class="faq-categories">
+            <button class="category-btn active" data-category="all">All Questions</button>
+            <button class="category-btn" data-category="getting-started">Getting Started</button>
+            <button class="category-btn" data-category="pricing">Pricing & Plans</button>
+            <button class="category-btn" data-category="features">Features</button>
+            <button class="category-btn" data-category="technical">Technical</button>
+          </div>
+
+          <div class="search-box">
+            <input type="text" id="faqSearch" placeholder="Search frequently asked questions...">
+          </div>
+
+          <div class="faq-grid" id="faqGrid">
+            <!-- Getting Started -->
+            <div class="faq-item" data-category="getting-started">
+              <div class="faq-question">
+                <span>How do I get started with Smart Prompt Solutions?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Getting started is easy! Sign up for our free trial to get access to 5 professional prompts immediately. No credit card required. You'll receive an email with your sample pack and access instructions within minutes of signing up.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="getting-started">
+              <div class="faq-question">
+                <span>What AI tools do your prompts work with?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Our prompts work with all major AI platforms including ChatGPT, Claude, Gemini (formerly Bard), Bing Chat, and any other text-based AI tool. They're designed to be platform-agnostic and work across different AI models.</p>
+              </div>
+            </div>
+
+            <!-- Pricing & Plans -->
+            <div class="faq-item" data-category="pricing">
+              <div class="faq-question">
+                <span>Can I change plans anytime?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes! You can upgrade or downgrade your plan at any time. Upgrades take effect immediately with prorated billing, while downgrades take effect at your next billing cycle. There are no long-term contracts or cancellation fees.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="pricing">
+              <div class="faq-question">
+                <span>Is there a money-back guarantee?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Absolutely! We offer a 14-day money-back guarantee on all paid plans. If you're not satisfied with our prompts for any reason, contact us within 14 days for a full refund—no questions asked.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="pricing">
+              <div class="faq-question">
+                <span>What payment methods do you accept?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover) and PayPal. All payments are processed securely through encrypted payment systems, and we never store your payment information.</p>
+              </div>
+            </div>
+
+            <!-- Features -->
+            <div class="faq-item" data-category="features">
+              <div class="faq-question">
+                <span>How do custom prompt credits work?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Premium users receive 5 custom prompt credits monthly. Submit a request describing your specific needs, industry, or use case, and our team of prompt engineers will create personalized prompts within 3-5 business days. Unused credits don't roll over.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="features">
+              <div class="faq-question">
+                <span>Can I use prompts for client work?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes! All our prompts can be used for client work, including agencies, consultants, and freelancers. Premium plans include white-label options for professional client presentations. You retain full commercial rights to content created using our prompts.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="features">
+              <div class="faq-question">
+                <span>How often do you add new prompts?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>We release new prompts monthly, with Pro users receiving 1 featured pack and Premium users receiving 2 featured packs per month. We also continuously update existing prompts based on user feedback and AI model improvements.</p>
+              </div>
+            </div>
+
+            <!-- Technical -->
+            <div class="faq-item" data-category="technical">
+              <div class="faq-question">
+                <span>Do you have an API for developers?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes! Premium subscribers get access to our RESTful API for integrating prompts into their own applications. The API includes endpoints for retrieving prompts, tracking usage, and managing custom prompts. Full documentation is available in your dashboard.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+              <div class="faq-question">
+                <span>Can I export my prompts and data?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes! You can export all your prompts, custom categories, and usage data at any time. We support CSV, JSON, and PDF formats. This ensures you always have access to your data, even if you decide to cancel your subscription.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+              <div class="faq-question">
+                <span>Is my data secure and private?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Absolutely! We use enterprise-grade security with SSL encryption, secure data centers, and strict privacy controls. We never share your data with third parties, and you can delete your account and all associated data at any time.</p>
+              </div>
+            </div>
+
+            <!-- General -->
+            <div class="faq-item" data-category="general">
+              <div class="faq-question">
+                <span>How much time can I expect to save?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Our users typically save 10-15 hours per week on content creation, marketing tasks, and business communications. The exact time saved depends on your usage, but most see immediate improvements in productivity from day one.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="general">
+              <div class="faq-question">
+                <span>What if I need help or have questions?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>We provide comprehensive support through multiple channels: email support for all users, priority support for Pro/Premium users, community forum, extensive documentation, and video tutorials. Premium users also get access to personal onboarding calls.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Still Have Questions?</h2>
+        <p>Our team is here to help you succeed with AI automation</p>
+        <div>
+          <a href="contact.html" class="btn btn--primary">Contact Support</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+            <li><a href="free-trial.html">Free Sample</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navClose = document.getElementById('navClose');
+
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+
+        if (navClose) {
+          navClose.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        });
+      }
+
+      // FAQ functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const searchInput = document.getElementById('faqSearch');
+
+      // FAQ toggle
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all FAQ items
+          faqItems.forEach(faqItem => {
+            faqItem.classList.remove('active');
+          });
+
+          // Open clicked item if it wasn't already active
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      // Category filtering
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.dataset.category;
+
+          // Update active button
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Filter FAQ items
+          faqItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+
+          if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Reset category filters when searching
+        if (searchTerm) {
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          document.querySelector('[data-category="all"]').classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
