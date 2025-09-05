@@ -1384,5 +1384,27 @@ main {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+/* Ensure dropdown menu is absolutely positioned under its parent */
+.dropdown {
+  position: relative;
+}
+
+/* Hide by default */
+.dropdown-menu {
+  display: none !important;
+}
+
+/* Show only on hover */
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+}
+.dropdown-menu {
+  z-index: 2000;
+  background-color: #1a1a1a;
+}
+
+.dropdown-menu a {
+  color: #ffffff;
+}
 
 
