@@ -1407,4 +1407,55 @@ main {
   color: #ffffff;
 }
 
+/* Ensure dropdown is hidden by default */
+.nav__menu .dropdown .dropdown-menu {
+  display: none !important;
+}
+
+/* Show on hover (desktop) */
+.nav__menu .dropdown:hover > .dropdown-menu {
+  display: block !important;
+}
+
+/* Dropdown styling */
+.nav__menu .dropdown {
+  position: relative;
+}
+.nav__menu .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  z-index: 2000;
+}
+.nav__menu .dropdown-menu li {
+  margin: 0;
+}
+.nav__menu .dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav__menu .dropdown-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Mobile: allow dropdown to expand within the menu */
+@media (max-width: 768px) {
+  .nav__menu .dropdown-menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+  .nav__menu .dropdown-menu a {
+    padding: 0.75rem 1rem;
+  }
+}
 
