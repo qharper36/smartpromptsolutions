@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Trial - Smart Prompt Solutions</title>
+  <meta name="description" content="Start your free trial of Smart Prompt Solutions. Get access to professional AI prompts, automation tools, and see immediate results in your business.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #1a1a1a;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* Header Styles */
+    .header {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      min-height: 60px;
+    }
+    .nav__brand {
+      flex-shrink: 0;
+    }
+    .nav__logo {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .nav__menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav__item {
+      margin: 0;
+    }
+    .nav__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+    .nav__link:hover {
+      color: #4fd1c7;
+    }
+    .nav__link.active {
+      color: #4fd1c7;
+    }
+    .nav__cta {
+      background-color: #4fd1c7;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .nav__cta:hover {
+      background: #3cb8b2;
+    }
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 2px 0;
+      transition: all 0.15s ease;
+      border-radius: 2px;
+    }
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+    .nav__menu .dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      z-index: 2000;
+    }
+    .nav__menu .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+    .nav__menu .dropdown-menu li {
+      margin: 0;
+    }
+    .nav__menu .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .nav__menu .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #4fd1c7 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+      margin-bottom: 2rem;
+    }
+    .hero__cta {
+      display: inline-block;
+      background: #4fd1c7;
+      color: #000000;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    .hero__cta:hover {
+      background: #3cb8b2;
+      transform: translateY(-2px);
+    }
+    /* Trial Form Section */
+    .trial-form-section {
+      padding: 80px 0;
+    }
+    .section__title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+    .trial-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .trial-info {
+      padding-right: 2rem;
+    }
+    .trial-info h3 {
+      font-size: 1.8rem;
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+    }
+    .trial-info p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .benefits-list {
+      list-style: none;
+      margin: 2rem 0;
+    }
+    .benefits-list li {
+      padding: 0.75rem 0;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    .benefits-list li::before {
+      content: "✓";
+      color: #4fd1c7;
+      font-weight: bold;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+    .trial-form {
+      background: #2a2a2a;
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background: #1a1a1a;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #4fd1c7;
+      box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+    .btn--primary {
+      background: #4fd1c7;
+      color: #000000;
+    }
+    .btn--primary:hover {
+      background: #3cb8b2;
+      transform: translateY(-2px);
+    }
+    .btn--full-width {
+      width: 100%;
+    }
+    .form-note {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      margin-top: 1rem;
+    }
+    /* Features Preview Section */
+    .features-preview {
+      background: #0f0f0f;
+      padding: 80px 0;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .preview-card {
+      background: #2a2a2a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    .preview-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .preview-title {
+      font-size: 1.3rem;
+      color: #4fd1c7;
+      margin-bottom: 0.5rem;
+    }
+    .preview-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 0;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: #2a2a2a;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .testimonial-stars {
+      color: #4fd1c7;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .testimonial-text {
+      color: rgba(255, 255, 255, 0.9);
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .testimonial-author {
+      color: #4fd1c7;
+      font-weight: 600;
+    }
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #4fd1c7 0%, #3cb8b2 100%);
+      padding: 60px 0;
+      text-align: center;
+      color: #000000;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+    /* COMBINED PROFESSIONAL FOOTER CSS */
+    .footer {
+      background: #0f0f0f;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer__section h3 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .footer__section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer__section ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer__section ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+      position: relative;
+      padding: 0.25rem 0;
+    }
+    .footer__section ul li a:hover {
+      color: #4fd1c7;
+    }
+    .footer__section ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #4fd1c7;
+      transition: width 0.3s ease;
+    }
+    .footer__section ul li a:hover::after {
+      width: 100%;
+    }
+    /* Social Media Section Specific Styling */
+    .footer__social-description {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .footer .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #2a2a2a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer .social-link:hover {
+      background: #4fd1c7;
+      color: #000000;
+      border-color: #4fd1c7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 209, 199, 0.3);
+    }
+    .footer .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    /* Mobile Styles */
+    @media (max-width: 1024px) {
+      .footer__content {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .footer__social {
+        grid-column: span 3;
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer .social-links {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+      }
+      .nav__menu.active {
+        left: 0;
+      }
+      .nav__item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+      .nav__link {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+        display: block;
+        width: 100%;
+      }
+      .nav__toggle {
+        display: flex;
+      }
+      .nav__toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 4px);
+      }
+      .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav__toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -4px);
+      }
+      .hero__title {
+        font-size: 2.5rem;
+      }
+      .trial-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .trial-info {
+        padding-right: 0;
+      }
+      .nav__menu .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+      }
+      .footer {
+        padding: 2rem 0 1rem;
+      }
+      .footer__content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .footer__social {
+        grid-column: span 2;
+      }
+      .footer .social-links {
+        gap: 0.75rem;
+      }
+      .footer .social-link {
+        width: 36px;
+        height: 36px;
+      }
+      .footer .social-link svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    @media (max-width: 480px) {
+      .footer__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer__social {
+        grid-column: span 1;
+      }
+      .footer__section {
+        margin-bottom: 1.5rem;
+      }
+      .footer__section:last-child {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li class="nav__item nav__close">
+          <button id="navClose" aria-label="Close menu">×</button>
+        </li>
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="features-updated.html" class="nav__link">Features</a></li>
+        <li class="nav__item"><a href="pricing-updated.html" class="nav__link">Pricing</a></li>
+        <li class="nav__item dropdown">
+          <a href="#!" class="nav__link dropdown-toggle">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="case-studies-updated.html" class="nav__link">Case Studies</a></li>
+            <li><a href="faq-updated.html" class="nav__link">FAQ</a></li>
+            <li><a href="blog-updated.html" class="nav__link">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="contact-updated.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="free-trial-updated.html" class="btn nav__cta active">Try Free</a>
+      <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Start Your Free Trial Today</h1>
+        <p class="hero__subtitle">Experience the power of professional AI prompts with our 14-day free trial. No credit card required. Cancel anytime.</p>
+        <a href="#trial-form" class="hero__cta">Get Instant Access</a>
+      </div>
+    </section>
+    <!-- Trial Form Section -->
+    <section class="trial-form-section" id="trial-form">
+      <div class="container">
+        <h2 class="section__title">Get Your Free Sample Pack</h2>
+        <div class="trial-container">
+          <div class="trial-info">
+            <h3>What's Included in Your Free Trial:</h3>
+            <p>Get immediate access to our professional AI prompt samples and experience firsthand how they can transform your business operations.</p>
+            <ul class="benefits-list">
+              <li>5 Professional AI Prompts (Worth $25)</li>
+              <li>Email Marketing Sequence Generator</li>
+              <li>Social Media Content Calendar</li>
+              <li>Product Description Template</li>
+              <li>Customer Support Response Builder</li>
+              <li>14-Day Access to Pro Features</li>
+              <li>Personal Onboarding Email Sequence</li>
+              <li>Community Forum Access</li>
+            </ul>
+            <p><strong>No Credit Card Required</strong> - Start immediately and upgrade only when you're ready.</p>
+          </div>
+          <div class="trial-form">
+            <form id="trialForm" action="#" method="POST">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+              </div>
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+              </div>
+              <div class="form-group">
+                <label for="businessType">Business Type *</label>
+                <select id="businessType" name="businessType" required>
+                  <option value="">Select your business type</option>
+                  <option value="solopreneur">Solopreneur</option>
+                  <option value="small-business">Small Business (2-10 employees)</option>
+                  <option value="agency">Marketing Agency</option>
+                  <option value="consultant">Consultant</option>
+                  <option value="ecommerce">E-commerce</option>
+                  <option value="saas">SaaS Company</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="mainGoal">Primary Goal *</label>
+                <select id="mainGoal" name="mainGoal" required>
+                  <option value="">What's your main goal?</option>
+                  <option value="save-time">Save Time on Content Creation</option>
+                  <option value="improve-marketing">Improve Marketing Results</option>
+                  <option value="scale-business">Scale Business Operations</option>
+                  <option value="increase-sales">Increase Sales Conversions</option>
+                  <option value="automate-tasks">Automate Repetitive Tasks</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full-width">Get My Free Sample Pack</button>
+              <p class="form-note">By signing up, you agree to receive helpful emails about AI prompts and business automation. Unsubscribe at any time.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Preview Section -->
+    <section class="features-preview">
+      <div class="container">
+        <h2 class="section__title">See What You'll Get Access To</h2>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <span class="preview-icon">📧</span>
+            <h3 class="preview-title">Email Campaign Builder</h3>
+            <p class="preview-description">Generate complete email sequences that convert prospects into customers with proven psychological triggers.</p>
+          </div>
+          <div class="preview-card">
+            <span class="preview-icon">📱</span>
+            <h3 class="preview-title">Social Media Scheduler</h3>
+            <p class="preview-description">Create 30 days of engaging social content in under 15 minutes with our viral post templates.</p>
+          </div>
+          <div class="preview-card">
+            <span class="preview-icon">🛍️</span>
+            <h3 class="preview-title">Product Description Generator</h3>
+            <p class="preview-description">Turn boring product features into compelling copy that sells with our conversion-optimized templates.</p>
+          </div>
+          <div class="preview-card">
+            <span class="preview-icon">💬</span>
+            <h3 class="preview-title">Customer Support Assistant</h3>
+            <p class="preview-description">Handle customer inquiries professionally and efficiently with our response templates.</p>
+          </div>
+          <div class="preview-card">
+            <span class="preview-icon">📊</span>
+            <h3 class="preview-title">Analytics Dashboard</h3>
+            <p class="preview-description">Track which prompts save you the most time and generate the best results for your business.</p>
+          </div>
+          <div class="preview-card">
+            <span class="preview-icon">🎯</span>
+            <h3 class="preview-title">Custom Prompt Builder</h3>
+            <p class="preview-description">Request personalized prompts tailored to your specific industry and business needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section__title">What Our Users Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"These prompts saved me 15 hours last week! My content creation is now completely automated and the quality is even better than before."</p>
+            <div class="testimonial-author">Sarah M., Marketing Consultant</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"The email sequences generated by these prompts doubled my conversion rates. I wish I had found this tool sooner!"</p>
+            <div class="testimonial-author">Mike R., E-commerce Owner</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Finally found prompts that actually work for real business problems. My productivity has increased by 300% since using these tools."</p>
+            <div class="testimonial-author">Lisa K., Solopreneur</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Join thousands of entrepreneurs saving 10+ hours weekly with our AI prompts</p>
+        <a href="#trial-form" class="btn btn--primary">Start Your Free Trial Now</a>
+      </div>
+    </section>
+  </main>
+  <!-- COMBINED PROFESSIONAL FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <!-- Company Section -->
+        <div class="footer__section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog-updated.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <!-- Product Section -->
+        <div class="footer__section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features-updated.html">Features</a></li>
+            <li><a href="pricing-updated.html">Pricing</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+            <li><a href="free-trial-updated.html">Free Sample</a></li>
+          </ul>
+        </div>
+        <!-- Resources Section -->
+        <div class="footer__section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="case-studies-updated.html">Case Studies</a></li>
+            <li><a href="faq-updated.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        <!-- Legal Section -->
+        <div class="footer__section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms-of-service-updated.html">Terms of Service</a></li>
+            <li><a href="privacy-policy-updated.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <!-- Connect With Us Section -->
+        <div class="footer__section footer__social">
+          <h3>Connect With Us</h3>
+          <p class="footer__social-description">Follow us for the latest AI automation tips and updates</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/company/smartpromptsolutions" target="_blank" class="social-link" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/smart_prompts1?t=Uhe6dtIcf7KKO06Bt9TvEg&s=09" target="_blank" class="social-link" aria-label="Twitter/X">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+            </a>
+            <a href="https://threads.net/@smartpromptsoultions" target="_blank" class="social-link" aria-label="Threads">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.181 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.74-1.774-.513-.624-1.267-.935-2.321-.962-1.754-.043-2.916.632-3.244 1.814l-1.947-.581c.525-1.834 2.317-2.76 4.395-2.7 1.57.034 2.82.493 3.635 1.334.897.926 1.407 2.334 1.52 4.19.949.319 1.706.897 2.207 1.686.746 1.171.824 2.821-.639 4.677C18.618 23.238 15.59 24.018 12.18 24"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com/profile.php?id=61578890644974" target="_blank" class="social-link" aria-label="Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/smartpromptsoultions?igsh=emFkYWtqb3pvNWs5" target="_blank" class="social-link" aria-label="Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@smartpromptsoultions?_t=ZP-8yZi466EiHW&_r=1" target="_blank" class="social-link" aria-label="TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navClose = document.getElementById('navClose');
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+        if (navClose) {
+          navClose.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        }
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        });
+      }
+      // Form submission
+      const trialForm = document.getElementById('trialForm');
+      if (trialForm) {
+        trialForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Add form submission logic here
+          alert('Thank you! Your free sample pack will be sent to your email shortly.');
+        });
+      }
+      // Smooth scrolling for anchor links
+      const anchorLinks = document.querySelectorAll('a[href^="#"]');
+      anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
