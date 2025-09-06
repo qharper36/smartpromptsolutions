@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Smart Prompt Solutions</title>
+  <meta name="description" content="Latest insights on AI automation, business productivity, and prompt engineering. Learn how to leverage AI tools to scale your business efficiently.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      min-height: 60px;
+    }
+
+    .nav__brand {
+      flex-shrink: 0;
+    }
+
+    .nav__logo {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav__menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav__item {
+      margin: 0;
+    }
+
+    .nav__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+
+    .nav__link:hover {
+      color: #4fd1c7;
+    }
+
+    .nav__link.active {
+      color: #4fd1c7;
+    }
+
+    .nav__cta {
+      background-color: #4fd1c7;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav__cta:hover {
+      background: #3cb8b2;
+    }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 2px 0;
+      transition: all 0.15s ease;
+      border-radius: 2px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .nav__menu .dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      z-index: 2000;
+    }
+
+    .nav__menu .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+
+    .nav__menu .dropdown-menu li {
+      margin: 0;
+    }
+
+    .nav__menu .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav__menu .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #4fd1c7 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Blog Controls */
+    .blog-controls {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .controls-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #2a2a2a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #4fd1c7;
+      box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .category-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #4fd1c7;
+      color: #000000;
+      border-color: #4fd1c7;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 80px 0;
+    }
+
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    .blog-main {
+      /* Main content area */
+    }
+
+    .blog-sidebar {
+      /* Sidebar content */
+    }
+
+    /* Featured Post */
+    .featured-post {
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 3rem;
+      cursor: pointer;
+    }
+
+    .featured-badge {
+      background: #4fd1c7;
+      color: #000000;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin: 1rem 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .featured-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .featured-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .featured-excerpt {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      color: #4fd1c7;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      color: #3cb8b2;
+    }
+
+    /* Blog Posts Grid */
+    .blog-posts {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .blog-post {
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(79, 209, 199, 0.1);
+    }
+
+    .post-content {
+      padding: 1.5rem;
+    }
+
+    .post-category {
+      background: rgba(79, 209, 199, 0.2);
+      color: #4fd1c7;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: #333333;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+
+    .tag:hover {
+      background: #4fd1c7;
+      color: #000000;
+    }
+
+    /* Full Post Modal */
+    .post-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    .modal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 3rem;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #4fd1c7;
+      color: #000000;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      background: #3cb8b2;
+    }
+
+    .full-post-content h1 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .full-post-content h2 {
+      color: #4fd1c7;
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(79, 209, 199, 0.3);
+    }
+
+    .full-post-content h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .full-post-content p {
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .full-post-content ul,
+    .full-post-content ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .full-post-content li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .full-post-content blockquote {
+      border-left: 4px solid #4fd1c7;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.8);
+      background: rgba(79, 209, 199, 0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .full-post-content code {
+      background: #333333;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #4fd1c7;
+    }
+
+    .full-post-content pre {
+      background: #333333;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .prompt-example {
+      background: #1a1a1a;
+      border: 1px solid #4fd1c7;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .prompt-example h4 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .prompt-example p {
+      margin-bottom: 0;
+      font-family: 'Courier New', monospace;
+      color: #ffffff;
+      background: #333333;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      white-space: pre-wrap;
+    }
+
+    /* Sidebar */
+    .sidebar-section {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+      color: #4fd1c7;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .sidebar-list a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      display: block;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+
+    .sidebar-list a:hover {
+      color: #4fd1c7;
+    }
+
+    .sidebar-meta {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.25rem;
+    }
+
+    /* Newsletter Signup */
+    .newsletter-signup {
+      background: linear-gradient(135deg, rgba(79, 209, 199, 0.1) 0%, rgba(79, 209, 199, 0.05) 100%);
+      border: 1px solid rgba(79, 209, 199, 0.3);
+    }
+
+    .newsletter-signup p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.5rem;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-form button {
+      background: #4fd1c7;
+      color: #000000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background: #3cb8b2;
+    }
+
+    /* Load More */
+    .load-more-section {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn--secondary {
+      background: transparent;
+      color: #4fd1c7;
+      border: 2px solid #4fd1c7;
+    }
+
+    .btn--secondary:hover {
+      background: #4fd1c7;
+      color: #000000;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0f0f0f;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer__section h3 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+    }
+
+    .footer__section ul {
+      list-style: none;
+    }
+
+    .footer__section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer__section ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer__section ul li a:hover {
+      color: #4fd1c7;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+      }
+
+      .nav__menu.active {
+        left: 0;
+      }
+
+      .nav__item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav__link {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+        display: block;
+        width: 100%;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .nav__toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 4px);
+      }
+
+      .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav__toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -4px);
+      }
+
+      .hero__title {
+        font-size: 2.5rem;
+      }
+
+      .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: none;
+      }
+
+      .category-filters {
+        justify-content: center;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .nav__menu .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+      }
+
+      .modal-content {
+        padding: 2rem;
+        margin: 1rem;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li class="nav__item nav__close">
+          <button id="navClose" aria-label="Close menu">×</button>
+        </li>
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="features-updated.html" class="nav__link">Features</a></li>
+        <li class="nav__item"><a href="pricing-updated-final.html" class="nav__link">Pricing</a></li>
+        <li class="nav__item dropdown">
+          <a href="#!" class="nav__link dropdown-toggle active">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="case-studies-updated.html" class="nav__link">Case Studies</a></li>
+            <li><a href="faq-updated.html" class="nav__link">FAQ</a></li>
+            <li><a href="blog-complete-final.html" class="nav__link active">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="contact-updated.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="free-trial-updated.html" class="btn nav__cta">Try Free</a>
+      <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Smart Insights Blog</h1>
+        <p class="hero__subtitle">Latest strategies, tips, and insights on AI automation, business productivity, and prompt engineering to help you scale smarter.</p>
+      </div>
+    </section>
+
+    <!-- Blog Controls -->
+    <section class="blog-controls">
+      <div class="container">
+        <div class="controls-container">
+          <div class="search-box">
+            <input type="text" id="blogSearch" placeholder="Search articles...">
+          </div>
+
+          <div class="category-filters">
+            <button class="category-btn active" data-category="all">All Posts</button>
+            <button class="category-btn" data-category="ai-automation">AI Automation</button>
+            <button class="category-btn" data-category="productivity">Productivity</button>
+            <button class="category-btn" data-category="business-tips">Business Tips</button>
+            <button class="category-btn" data-category="tutorials">Tutorials</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-layout">
+          <div class="blog-main">
+            <!-- Featured Post -->
+            <article class="featured-post" data-category="ai-automation" data-post-id="featured-post">
+              <div class="featured-badge">FEATURED</div>
+              <div class="featured-content">
+                <div class="featured-meta">
+                  <span>📅 September 1, 2025</span>
+                  <span>👤 Sarah Chen</span>
+                  <span>⏱️ 8 min read</span>
+                </div>
+                <h2 class="featured-title">How AI Prompts Helped Me Scale My Agency to $100K/Month</h2>
+                <p class="featured-excerpt">A detailed case study of how one marketing agency owner used Smart Prompt Solutions to automate client content creation, reduce workload by 75%, and triple revenue in just 6 months. Includes specific prompts and workflows that you can implement today.</p>
+                <span class="read-more">Read Full Story →</span>
+              </div>
+            </article>
+
+            <!-- Blog Posts -->
+            <div class="blog-posts" id="blogPostsContainer">
+              <article class="blog-post" data-category="productivity" data-post-id="post-1">
+                <div class="post-content">
+                  <div class="post-category">Productivity</div>
+                  <div class="post-meta">
+                    <span>📅 August 28, 2025</span>
+                    <span>👤 Mike Rodriguez</span>
+                    <span>⏱️ 5 min read</span>
+                  </div>
+                  <h3 class="post-title">10 Game-Changing Prompts That Will Save You 15 Hours This Week</h3>
+                  <p class="post-excerpt">Stop spending hours on repetitive tasks. These 10 battle-tested prompts will automate your most time-consuming business activities, from email responses to content planning. Each prompt comes with real examples and implementation guides.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Time Management</a>
+                    <a href="#" class="tag">Automation</a>
+                    <a href="#" class="tag">Email</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+
+              <article class="blog-post" data-category="tutorials" data-post-id="post-2">
+                <div class="post-content">
+                  <div class="post-category">Tutorial</div>
+                  <div class="post-meta">
+                    <span>📅 August 25, 2025</span>
+                    <span>👤 Lisa Thompson</span>
+                    <span>⏱️ 12 min read</span>
+                  </div>
+                  <h3 class="post-title">Step-by-Step: Building Your First AI Content Calendar</h3>
+                  <p class="post-excerpt">Learn how to create a 30-day content calendar in under 20 minutes using AI prompts. This comprehensive guide includes templates, examples, and troubleshooting tips for every social platform including LinkedIn, Twitter, Instagram, and Facebook.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Content Marketing</a>
+                    <a href="#" class="tag">Social Media</a>
+                    <a href="#" class="tag">Planning</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+
+              <article class="blog-post" data-category="business-tips" data-post-id="post-3">
+                <div class="post-content">
+                  <div class="post-category">Business Tips</div>
+                  <div class="post-meta">
+                    <span>📅 August 22, 2025</span>
+                    <span>👤 David Park</span>
+                    <span>⏱️ 7 min read</span>
+                  </div>
+                  <h3 class="post-title">Why 87% of Small Businesses Fail at AI Implementation (And How to Avoid It)</h3>
+                  <p class="post-excerpt">Most entrepreneurs approach AI wrong from day one. Here are the 5 critical mistakes that doom AI projects before they start, plus a simple 4-step framework that guarantees success. Learn from real failures and wins from over 500 businesses.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Strategy</a>
+                    <a href="#" class="tag">Implementation</a>
+                    <a href="#" class="tag">Mistakes</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+
+              <article class="blog-post" data-category="ai-automation" data-post-id="post-4">
+                <div class="post-content">
+                  <div class="post-category">AI Automation</div>
+                  <div class="post-meta">
+                    <span>📅 August 19, 2025</span>
+                    <span>👤 Jessica Lee</span>
+                    <span>⏱️ 6 min read</span>
+                  </div>
+                  <h3 class="post-title">The Future of Customer Service: AI Chatbots That Actually Help</h3>
+                  <p class="post-excerpt">Customer service is being revolutionized by AI, but most implementations fail. Discover how to build chatbots that solve real problems, reduce support tickets by 60%, and increase customer satisfaction scores dramatically. Includes implementation roadmap.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Customer Service</a>
+                    <a href="#" class="tag">Chatbots</a>
+                    <a href="#" class="tag">Technology</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+
+              <article class="blog-post" data-category="productivity" data-post-id="post-5">
+                <div class="post-content">
+                  <div class="post-category">Productivity</div>
+                  <div class="post-meta">
+                    <span>📅 August 16, 2025</span>
+                    <span>👤 Alex Johnson</span>
+                    <span>⏱️ 4 min read</span>
+                  </div>
+                  <h3 class="post-title">Email Overwhelm? This 5-Minute AI Solution Changed Everything</h3>
+                  <p class="post-excerpt">Spending hours in your inbox daily? This simple AI prompt system helps you process emails 10x faster while maintaining professionalism and never missing important messages. Includes ready-to-use templates for every situation.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Email Management</a>
+                    <a href="#" class="tag">Quick Tips</a>
+                    <a href="#" class="tag">Workflow</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+
+              <article class="blog-post" data-category="tutorials" data-post-id="post-6">
+                <div class="post-content">
+                  <div class="post-category">Tutorial</div>
+                  <div class="post-meta">
+                    <span>📅 August 13, 2025</span>
+                    <span>👤 Maria Garcia</span>
+                    <span>⏱️ 9 min read</span>
+                  </div>
+                  <h3 class="post-title">Complete Guide: AI-Powered Sales Funnels That Convert</h3>
+                  <p class="post-excerpt">Build high-converting sales funnels using AI prompts. From lead magnets to follow-up sequences, learn the exact templates and strategies that generated $50K in revenue last quarter. Includes funnel templates and email sequences you can copy.</p>
+                  <div class="post-tags">
+                    <a href="#" class="tag">Sales Funnels</a>
+                    <a href="#" class="tag">Lead Generation</a>
+                    <a href="#" class="tag">Conversions</a>
+                  </div>
+                  <span class="read-more">Continue Reading →</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="load-more-section">
+              <button class="btn btn--secondary" id="loadMoreBtn">Load More Articles</button>
+            </div>
+          </div>
+
+          <div class="blog-sidebar">
+            <!-- Recent Posts -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <ul class="sidebar-list">
+                <li>
+                  <a href="#">5 ChatGPT Prompts Every Entrepreneur Needs</a>
+                  <div class="sidebar-meta">August 10, 2025</div>
+                </li>
+                <li>
+                  <a href="#">Automating Your Social Media Strategy</a>
+                  <div class="sidebar-meta">August 7, 2025</div>
+                </li>
+                <li>
+                  <a href="#">The ROI of AI: Real Numbers from 100 Businesses</a>
+                  <div class="sidebar-meta">August 4, 2025</div>
+                </li>
+                <li>
+                  <a href="#">Content Creation in the Age of AI</a>
+                  <div class="sidebar-meta">August 1, 2025</div>
+                </li>
+                <li>
+                  <a href="#">Why Your Marketing Prompts Aren't Working</a>
+                  <div class="sidebar-meta">July 28, 2025</div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Popular Categories -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Popular Categories</h3>
+              <ul class="sidebar-list">
+                <li><a href="#">AI Automation <span style="color: #4fd1c7;">(24 posts)</span></a></li>
+                <li><a href="#">Productivity Tips <span style="color: #4fd1c7;">(18 posts)</span></a></li>
+                <li><a href="#">Business Strategy <span style="color: #4fd1c7;">(15 posts)</span></a></li>
+                <li><a href="#">Tutorials & Guides <span style="color: #4fd1c7;">(12 posts)</span></a></li>
+                <li><a href="#">Case Studies <span style="color: #4fd1c7;">(9 posts)</span></a></li>
+              </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="sidebar-section newsletter-signup">
+              <h3 class="sidebar-title">Never Miss an Update</h3>
+              <p>Get the latest AI automation tips and exclusive prompt templates delivered to your inbox weekly.</p>
+              <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+
+            <!-- Popular Tags -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Popular Tags</h3>
+              <div class="post-tags">
+                <a href="#" class="tag">ChatGPT</a>
+                <a href="#" class="tag">Automation</a>
+                <a href="#" class="tag">Content Marketing</a>
+                <a href="#" class="tag">Email Marketing</a>
+                <a href="#" class="tag">Productivity</a>
+                <a href="#" class="tag">Social Media</a>
+                <a href="#" class="tag">Sales</a>
+                <a href="#" class="tag">Time Management</a>
+                <a href="#" class="tag">Templates</a>
+                <a href="#" class="tag">Workflows</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog-complete-final.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features-updated.html">Features</a></li>
+            <li><a href="pricing-updated-final.html">Pricing</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+            <li><a href="free-trial-updated.html">Free Sample</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="case-studies-updated.html">Case Studies</a></li>
+            <li><a href="faq-updated.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer__section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms-of-service-updated.html">Terms of Service</a></li>
+            <li><a href="privacy-policy-updated.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Post Modal -->
+  <div class="post-modal" id="postModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="full-post-content" id="fullPostContent">
+        <!-- Full post content will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Blog post full content data
+    const fullPosts = {
+      'featured-post': {
+        title: 'How AI Prompts Helped Me Scale My Agency to $100K/Month',
+        content: `
+          <h1>How AI Prompts Helped Me Scale My Agency to $100K/Month</h1>
+          <div class="post-meta" style="margin-bottom: 2rem; color: rgba(255,255,255,0.6);">
+            <span>📅 September 1, 2025</span> • <span>👤 Sarah Chen</span> • <span>⏱️ 8 min read</span>
+          </div>
+
+          <p>Six months ago, I was drowning. My marketing agency had 15 clients, and I was working 70-hour weeks just to keep up with content demands. Client complaints were increasing, my team was burning out, and I couldn't take on any new business without compromising quality.</p>
+
+          <p>Today, we serve 25 clients, my team works normal hours, and we just crossed $100K in monthly recurring revenue. The game-changer? AI prompts from Smart Prompt Solutions.</p>
+
+          <h2>The Breaking Point</h2>
+
+          <p>Let me paint you a picture of where I was in February 2025. Every morning started with a flood of client requests:</p>
+
+          <ul>
+            <li>"We need 20 social media posts for next week"</li>
+            <li>"Can you write a blog post about our new product launch?"</li>
+            <li>"We need email sequences for our upcoming campaign"</li>
+            <li>"Our website copy needs a complete overhaul"</li>
+          </ul>
+
+          <p>My team of four was stretched beyond capacity. We were spending 6-8 hours per client just on content creation alone. Quality was suffering, deadlines were missed, and I was losing sleep every night.</p>
+
+          <blockquote>"I realized that if I didn't find a solution fast, I'd either have to fire clients or watch my agency collapse. That's when I discovered AI automation."</blockquote>
+
+          <h2>Discovering the Power of Structured AI Prompts</h2>
+
+          <p>I had tried using ChatGPT before, but the results were generic and required extensive editing. The breakthrough came when I found Smart Prompt Solutions and their professional prompt templates.</p>
+
+          <p>Instead of asking "Write me a social media post about productivity," I started using structured prompts like this:</p>
+
+          <div class="prompt-example">
+            <h4>Social Media Content Generator Prompt:</h4>
+            <p>Act as an expert social media manager for [CLIENT INDUSTRY]. Create a LinkedIn post that:
+
+- Targets [SPECIFIC AUDIENCE] 
+- Addresses the pain point: [SPECIFIC PROBLEM]
+- Offers actionable solution in 150-200 words
+- Includes 3 relevant hashtags
+- Ends with an engagement question
+- Uses a conversational, professional tone
+
+Client context: [BRIEF CLIENT DESCRIPTION]
+Key message: [MAIN POINT TO CONVEY]</p>
+          </div>
+
+          <p>The difference was night and day. Instead of generic content, I was getting personalized, high-quality posts that resonated with each client's audience.</p>
+
+          <h2>The Transformation: Month by Month</h2>
+
+          <h3>Month 1: Testing and Implementation</h3>
+          <p>I started with three core prompts: social media content, email marketing, and blog post outlines. The initial results saved us about 15 hours per week across all clients.</p>
+
+          <h3>Month 2: Scaling the System</h3>
+          <p>Encouraged by early results, I implemented prompts for:</p>
+          <ul>
+            <li>Ad copy creation</li>
+            <li>Client reporting</li>
+            <li>Content calendar planning</li>
+            <li>SEO optimization</li>
+          </ul>
+
+          <p>Time savings increased to 25 hours per week. I started taking on new clients.</p>
+
+          <h3>Month 3: Team Training</h3>
+          <p>I trained my entire team on the prompt system. Everyone was skeptical at first, but results spoke for themselves. Our content output doubled while maintaining quality.</p>
+
+          <h3>Month 4-6: Exponential Growth</h3>
+          <p>With proven systems in place, I could confidently pitch to larger clients. We went from 15 clients to 25, increased our average retainer by 40%, and reduced our average time per client by 60%.</p>
+
+          <h2>The Specific Prompts That Changed Everything</h2>
+
+          <p>Here are the five most impactful prompts that transformed our agency:</p>
+
+          <h3>1. The Email Sequence Generator</h3>
+          <div class="prompt-example">
+            <h4>Email Campaign Builder:</h4>
+            <p>Create a 5-email welcome sequence for [CLIENT BUSINESS TYPE] targeting [AUDIENCE]. 
+
+Email 1: Welcome & set expectations
+Email 2: Share origin story & build trust  
+Email 3: Highlight main benefit/solution
+Email 4: Address common objections
+Email 5: Strong call-to-action
+
+Each email should be 200-300 words, include personalization, and maintain [BRAND VOICE DESCRIPTION]. Include subject lines optimized for 25%+ open rates.</p>
+          </div>
+
+          <h3>2. The Content Calendar Creator</h3>
+          <div class="prompt-example">
+            <h4>30-Day Content Planner:</h4>
+            <p>Generate a 30-day content calendar for [CLIENT] in [INDUSTRY]. Include:
+
+- 20 educational posts (how-to, tips, insights)
+- 5 promotional posts (products/services)
+- 5 engagement posts (questions, polls, behind-scenes)
+
+For each post provide:
+- Platform-specific format (LinkedIn/Instagram/Facebook)
+- Caption (with hashtags)
+- Content pillar category
+- Best posting time recommendation
+
+Target audience: [AUDIENCE DESCRIPTION]
+Brand voice: [VOICE DESCRIPTION]</p>
+          </div>
+
+          <h3>3. The Blog Post Outliner</h3>
+          <div class="prompt-example">
+            <h4>SEO Blog Post Structure:</h4>
+            <p>Create a detailed blog post outline for "[TOPIC]" targeting the keyword "[PRIMARY KEYWORD]". Include:
+
+1. SEO-optimized title (under 60 characters)
+2. Meta description (150-160 characters)  
+3. Introduction hook
+4. 5-7 main sections with H2 headers
+5. 3-5 H3 subheaders per section
+6. Key points to cover in each section
+7. 3 internal linking opportunities
+8. Compelling conclusion with CTA
+
+Target audience: [AUDIENCE]
+Content goal: [EDUCATION/CONVERSION/AWARENESS]</p>
+          </div>
+
+          <h2>The Numbers: Real ROI Data</h2>
+
+          <p>Let me share the actual financial impact this transformation had on our agency:</p>
+
+          <ul>
+            <li><strong>Time savings:</strong> 35 hours per week (equivalent to hiring a full-time employee)</li>
+            <li><strong>Client capacity:</strong> Increased from 15 to 25 clients with same team size</li>
+            <li><strong>Revenue growth:</strong> From $45K/month to $100K/month in 6 months</li>
+            <li><strong>Profit margins:</strong> Increased by 32% due to efficiency gains</li>
+            <li><strong>Client satisfaction:</strong> NPS score improved from 7.2 to 9.1</li>
+            <li><strong>Team burnout:</strong> Reduced overtime by 80%</li>
+          </ul>
+
+          <h2>Implementation Lessons Learned</h2>
+
+          <h3>What Worked:</h3>
+          <ul>
+            <li><strong>Start small:</strong> Implement 2-3 prompts first, master them, then expand</li>
+            <li><strong>Customize everything:</strong> Generic prompts produce generic results</li>
+            <li><strong>Train your team:</strong> Everyone needs to understand the prompt framework</li>
+            <li><strong>Quality control:</strong> Always review AI output before client delivery</li>
+            <li><strong>Iterate constantly:</strong> Refine prompts based on results</li>
+          </ul>
+
+          <h3>Common Mistakes to Avoid:</h3>
+          <ul>
+            <li>Expecting perfect results immediately</li>
+            <li>Using the same prompt for all clients</li>
+            <li>Skipping the human review process</li>
+            <li>Not training team members properly</li>
+            <li>Trying to automate everything at once</li>
+          </ul>
+
+          <h2>The Future of Agency Work</h2>
+
+          <p>AI isn't replacing marketers—it's amplifying the best ones. Agencies that embrace structured AI automation will dominate the next decade, while those that resist will struggle to compete on both quality and pricing.</p>
+
+          <p>The key is understanding that AI is a tool that amplifies human creativity and strategy. It handles the repetitive, time-consuming tasks so we can focus on high-level strategy, relationship building, and creative problem-solving.</p>
+
+          <h2>Your Next Steps</h2>
+
+          <p>If you're running an agency or thinking about starting one, here's my advice:</p>
+
+          <ol>
+            <li><strong>Start today:</strong> Don't wait for the "perfect" moment to implement AI</li>
+            <li><strong>Invest in quality prompts:</strong> Professional templates save months of trial and error</li>
+            <li><strong>Train your team:</strong> Make AI adoption a company-wide initiative</li>
+            <li><strong>Track everything:</strong> Measure time savings, quality improvements, and client satisfaction</li>
+            <li><strong>Scale gradually:</strong> Add new clients and services as your systems mature</li>
+          </ol>
+
+          <blockquote>"The agencies that survive and thrive in the AI era won't be the ones with the most expensive tools—they'll be the ones with the best systems and processes."</blockquote>
+
+          <p>Six months ago, I was a burnt-out agency owner working 70-hour weeks for mediocre results. Today, I run a thriving $100K/month agency with a happy team and delighted clients.</p>
+
+          <p>The difference? Professional AI prompts and the discipline to implement them systematically.</p>
+
+          <p>Your transformation starts today. What are you waiting for?</p>
+        `
+      },
+      'post-1': {
+        title: '10 Game-Changing Prompts That Will Save You 15 Hours This Week',
+        content: `
+          <h1>10 Game-Changing Prompts That Will Save You 15 Hours This Week</h1>
+          <div class="post-meta" style="margin-bottom: 2rem; color: rgba(255,255,255,0.6);">
+            <span>📅 August 28, 2025</span> • <span>👤 Mike Rodriguez</span> • <span>⏱️ 5 min read</span>
+          </div>
+
+          <p>Time is your most valuable asset as an entrepreneur. Yet most business owners spend hours on repetitive tasks that could be automated in minutes. After analyzing productivity data from over 1,000 entrepreneurs, I've identified the 10 most time-consuming business activities and created AI prompts that can handle them automatically.</p>
+
+          <p>These aren't generic prompts you'll find elsewhere. Each one has been tested by real businesses and refined based on results. Implement all 10, and you'll save at least 15 hours this week.</p>
+
+          <h2>1. Email Response Automation (Time Saved: 3 hours/week)</h2>
+
+          <p>Emails consume 2.6 hours of the average executive's day. This prompt handles 80% of routine responses:</p>
+
+          <div class="prompt-example">
+            <h4>Professional Email Responder:</h4>
+            <p>Analyze this email and draft a professional response:
+
+[PASTE EMAIL HERE]
+
+Response guidelines:
+- Maintain professional but friendly tone
+- Address all questions/requests specifically  
+- Include relevant next steps or actions
+- Keep under 150 words unless complex topic
+- Match the sender's level of formality
+- Add appropriate closing and signature line
+
+If the email requires personal input or decision-making, instead provide 3 response options with different approaches (direct, diplomatic, detailed).</p>
+          </div>
+
+          <p><strong>Implementation tip:</strong> Create variations for different types of emails (customer service, partnerships, vendor communication).</p>
+
+          <h2>2. Meeting Summary Generator (Time Saved: 2 hours/week)</h2>
+
+          <p>Stop spending 30 minutes after each meeting writing summaries. This prompt does it instantly:</p>
+
+          <div class="prompt-example">
+            <h4>Meeting Minutes Creator:</h4>
+            <p>Convert these meeting notes into a professional summary:
+
+[PASTE NOTES HERE]
+
+Format:
+**Meeting:** [Topic] - [Date]
+**Attendees:** [Names and roles]
+**Key Decisions:**
+• [List all decisions made]
+**Action Items:**
+• [Task] - Owner: [Name] - Due: [Date]
+**Next Steps:**
+• [What happens next]
+**Follow-up Required:**
+• [Any pending items]
+
+Keep it concise but comprehensive. Highlight urgent items.</p>
+          </div>
+
+          <p><strong>Pro tip:</strong> Record meetings (with permission) and use transcription tools, then apply this prompt to the transcript.</p>
+
+          <h2>3. Social Media Content Creator (Time Saved: 2.5 hours/week)</h2>
+
+          <p>Creating engaging social content consistently is challenging. This prompt generates platform-specific posts:</p>
+
+          <div class="prompt-example">
+            <h4>Social Media Post Generator:</h4>
+            <p>Create 5 social media posts about [TOPIC] for [PLATFORM - LinkedIn/Instagram/Twitter].
+
+Requirements:
+- Target audience: [YOUR AUDIENCE]
+- Brand voice: [Professional/Casual/Inspirational]
+- Include relevant hashtags (3-5 for LinkedIn, 10-15 for Instagram, 2-3 for Twitter)
+- Each post should provide value (educate, inspire, or entertain)
+- Include engagement hooks (questions, calls-to-action)
+- Vary post types: tip, question, story, statistic, behind-the-scenes
+
+Format each post with optimal character count for the platform.</p>
+          </div>
+
+          <p><strong>Advanced usage:</strong> Create different versions for various content pillars (education, inspiration, promotion, behind-the-scenes).</p>
+
+          <h2>4. Customer Service Response Templates (Time Saved: 1.5 hours/week)</h2>
+
+          <p>Handle customer inquiries faster while maintaining quality:</p>
+
+          <div class="prompt-example">
+            <h4>Customer Service Response Builder:</h4>
+            <p>Create a helpful customer service response for this inquiry:
+
+[PASTE CUSTOMER MESSAGE]
+
+Response should:
+- Acknowledge their specific concern
+- Provide clear, actionable solution
+- Include relevant policy information if applicable
+- Maintain empathetic, professional tone
+- End with follow-up offer or next steps
+- Include relevant links or resources if helpful
+
+If you can't fully resolve the issue, explain what you CAN do and provide timeline for complete resolution.</p>
+          </div>
+
+          <h2>5. Proposal and Quote Generator (Time Saved: 2 hours/week)</h2>
+
+          <p>Create professional proposals in minutes instead of hours:</p>
+
+          <div class="prompt-example">
+            <h4>Business Proposal Creator:</h4>
+            <p>Create a professional project proposal based on this information:
+
+Client: [NAME/COMPANY]
+Project: [DESCRIPTION]  
+Budget range: [AMOUNT]
+Timeline: [DURATION]
+Key requirements: [LIST MAIN NEEDS]
+
+Structure:
+1. Executive Summary
+2. Understanding of Requirements  
+3. Proposed Solution
+4. Timeline & Deliverables
+5. Investment & Payment Terms
+6. Why Choose Us (3-4 key benefits)
+7. Next Steps
+
+Tone: Professional but personable
+Length: 2-3 pages when formatted</p>
+          </div>
+
+          <h2>Continue with remaining prompts...</h2>
+
+          <p>The remaining 5 prompts cover blog outlines, task prioritization, competitor analysis, content repurposing, and weekly planning. Each follows the same proven structure and delivers measurable time savings.</p>
+
+          <h2>Implementation Strategy: Your 7-Day Action Plan</h2>
+
+          <p>Don't try to implement all 10 prompts at once. Here's a proven rollout plan:</p>
+
+          <h3>Days 1-2: Email & Meetings</h3>
+          <p>Start with prompts #1 (Email Responses) and #2 (Meeting Summaries). These provide immediate time savings and build confidence in the system.</p>
+
+          <h3>Days 3-4: Content Creation</h3>
+          <p>Add prompts #3 (Social Media) and #6 (Blog Outlines). These tackle major time sinks for most entrepreneurs.</p>
+
+          <h3>Days 5-6: Business Operations</h3>
+          <p>Implement prompts #4 (Customer Service) and #5 (Proposals). These improve both efficiency and professional quality.</p>
+
+          <h3>Day 7: Strategic Tools</h3>
+          <p>Add the remaining prompts (#7-10) for strategic planning and competitive advantage.</p>
+
+          <h2>Your Next Steps</h2>
+
+          <p>Time saved is only valuable if you reinvest it wisely. Here's how to maximize your newly found 15 hours:</p>
+
+          <ol>
+            <li><strong>Strategic planning:</strong> 3 hours on business strategy and goal setting</li>
+            <li><strong>Relationship building:</strong> 4 hours connecting with clients, partners, and prospects</li>
+            <li><strong>Skill development:</strong> 2 hours learning new skills or industry trends</li>
+            <li><strong>Business development:</strong> 3 hours on sales, marketing, or product development</li>
+            <li><strong>Personal time:</strong> 3 hours for family, health, or hobbies</li>
+          </ol>
+
+          <p>The entrepreneurs who thrive in the AI era won't be those who work the hardest—they'll be those who work the smartest. These 10 prompts are your starting point for building a more efficient, profitable, and sustainable business.</p>
+
+          <p>Start with just one prompt today. Your future self will thank you.</p>
+        `
+      },
+      'post-2': {
+        title: 'Step-by-Step: Building Your First AI Content Calendar',
+        content: `
+          <h1>Step-by-Step: Building Your First AI Content Calendar</h1>
+          <div class="post-meta" style="margin-bottom: 2rem; color: rgba(255,255,255,0.6);">
+            <span>📅 August 25, 2025</span> • <span>👤 Lisa Thompson</span> • <span>⏱️ 12 min read</span>
+          </div>
+
+          <p>Content marketing is the lifeblood of modern business, but planning and creating consistent, engaging content feels overwhelming for most entrepreneurs. The average business owner spends 5-8 hours weekly just planning social media posts, blog content, and email campaigns.</p>
+
+          <p>What if I told you that you could create a complete 30-day content calendar in under 20 minutes? Not just titles and topics, but full posts with captions, hashtags, and optimal posting times—all tailored specifically to your audience and brand voice.</p>
+
+          <p>That's exactly what we'll build today using AI automation.</p>
+
+          <h2>Why Most Content Calendars Fail</h2>
+
+          <p>Before we dive into the solution, let's address why traditional content planning doesn't work:</p>
+
+          <ul>
+            <li><strong>Too time-intensive:</strong> Planning content manually takes longer than creating it</li>
+            <li><strong>Lacks consistency:</strong> Quality varies based on your mood and available time</li>
+            <li><strong>One-size-fits-all approach:</strong> Generic content doesn't engage specific audiences</li>
+            <li><strong>Poor platform optimization:</strong> What works on LinkedIn doesn't work on Instagram</li>
+            <li><strong>No strategic alignment:</strong> Random posts don't support business goals</li>
+          </ul>
+
+          <p>The AI content calendar system we'll build today solves all these problems while saving you hours each week.</p>
+
+          <h2>The 4-Pillar Content Framework</h2>
+
+          <p>Before generating content, we need a strategic foundation. Every successful content calendar balances four types of posts:</p>
+
+          <h3>1. Educational Content (40% of posts)</h3>
+          <p><strong>Purpose:</strong> Build authority and provide value<br>
+          <strong>Examples:</strong> How-to guides, tips, industry insights, tutorials<br>
+          <strong>Goal:</strong> Position you as the expert in your field</p>
+
+          <h3>2. Inspirational Content (25% of posts)</h3>
+          <p><strong>Purpose:</strong> Motivate and connect emotionally<br>
+          <strong>Examples:</strong> Success stories, quotes, behind-the-scenes, personal journey<br>
+          <strong>Goal:</strong> Build personal brand and emotional connection</p>
+
+          <h3>3. Promotional Content (20% of posts)</h3>
+          <p><strong>Purpose:</strong> Drive business results<br>
+          <strong>Examples:</strong> Product announcements, case studies, testimonials, offers<br>
+          <strong>Goal:</strong> Convert followers into customers</p>
+
+          <h3>4. Engagement Content (15% of posts)</h3>
+          <p><strong>Purpose:</strong> Boost interaction and community building<br>
+          <strong>Examples:</strong> Questions, polls, trends, user-generated content<br>
+          <strong>Goal:</strong> Increase reach through algorithm optimization</p>
+
+          <h2>Step 1: Define Your Content Strategy (5 minutes)</h2>
+
+          <p>Start by completing this strategic framework. Don't skip this step—it's the foundation everything else builds on.</p>
+
+          <div class="prompt-example">
+            <h4>Content Strategy Builder:</h4>
+            <p>Help me define a content strategy for my business:
+
+**Business Details:**
+- Industry: [YOUR INDUSTRY]
+- Target audience: [WHO YOU SERVE]
+- Main service/product: [WHAT YOU OFFER]
+- Business goals: [YOUR OBJECTIVES]
+
+**Content Preferences:**
+- Brand voice: [Professional/Casual/Friendly/Authoritative]
+- Topics of expertise: [LIST 3-5 AREAS]
+- Platforms to focus on: [LinkedIn/Instagram/Facebook/Twitter]
+- Content formats you enjoy creating: [Video/Images/Text/Stories]
+
+Based on this information, provide:
+1. Content pillars (4-5 main themes to focus on)
+2. Audience pain points to address
+3. Key messages to communicate consistently
+4. Content goals for each platform
+5. Success metrics to track</p>
+          </div>
+
+          <h2>Step 2: Generate Platform-Specific Content (10 minutes)</h2>
+
+          <p>Now we'll create content for each platform using optimized prompts. Start with your primary platform, then expand to others.</p>
+
+          <h3>LinkedIn Content Generator</h3>
+
+          <div class="prompt-example">
+            <h4>LinkedIn Post Creator:</h4>
+            <p>Generate 30 LinkedIn posts following this distribution:
+- 12 Educational posts (tips, insights, how-to)
+- 8 Inspirational posts (stories, lessons learned)  
+- 6 Promotional posts (services, case studies, testimonials)
+- 4 Engagement posts (questions, polls, industry trends)
+
+**Business Context:**
+- Industry: [YOUR INDUSTRY]
+- Target audience: [YOUR AUDIENCE]
+- Expertise areas: [YOUR SPECIALTIES]
+- Brand voice: [YOUR VOICE]
+
+**For each post, provide:**
+- Hook (first line to grab attention)
+- Main content (value-packed body)
+- Call-to-action (engagement driver)
+- 3-5 relevant hashtags
+- Optimal posting time recommendation
+
+**Additional requirements:**
+- Vary post lengths (short, medium, long)
+- Include personal stories and experiences
+- Address specific pain points
+- Use data/statistics where relevant
+- Create posts that encourage comments and shares</p>
+          </div>
+
+          <h2>Continue with comprehensive implementation guide...</h2>
+
+          <p>The complete guide continues with Instagram and Twitter generators, visual content planning, publishing schedules, content management systems, advanced optimization techniques, troubleshooting tips, and scaling strategies.</p>
+
+          <p>This system has helped over 500 businesses create consistent, engaging content that drives real business results. Your audience is waiting for your unique insights and expertise.</p>
+
+          <p>Start building your content calendar today. Your business growth depends on it.</p>
+        `
+      }
+    };
+
+    // Additional blog posts for "Load More" functionality
+    const additionalPosts = [
+      {
+        category: 'productivity',
+        title: '5 ChatGPT Prompts Every Entrepreneur Needs',
+        excerpt: 'Master these five essential ChatGPT prompts to streamline your business operations, improve decision-making, and save hours of work each day. Includes ready-to-copy templates.',
+        author: 'Emma Wilson',
+        date: 'August 10, 2025',
+        readTime: '6 min',
+        tags: ['ChatGPT', 'Automation', 'Business'],
+        id: 'post-7'
+      },
+      {
+        category: 'ai-automation', 
+        title: 'Automating Your Social Media Strategy',
+        excerpt: 'Complete guide to building an AI-powered social media system that creates, schedules, and optimizes content while you focus on growing your business.',
+        author: 'Ryan Martinez',
+        date: 'August 7, 2025', 
+        readTime: '10 min',
+        tags: ['Social Media', 'Automation', 'Strategy'],
+        id: 'post-8'
+      },
+      {
+        category: 'business-tips',
+        title: 'The ROI of AI: Real Numbers from 100 Businesses',
+        excerpt: 'Comprehensive analysis of AI adoption across 100 small businesses, revealing which tools provide the highest ROI and fastest implementation.',
+        author: 'Dr. Amanda Foster',
+        date: 'August 4, 2025',
+        readTime: '8 min', 
+        tags: ['ROI', 'Data', 'Business Intelligence'],
+        id: 'post-9'
+      },
+      {
+        category: 'tutorials',
+        title: 'Content Creation in the Age of AI',
+        excerpt: 'Learn how to blend AI efficiency with human creativity to produce content that resonates with your audience and drives business results.',
+        author: 'Jake Thompson',
+        date: 'August 1, 2025',
+        readTime: '7 min',
+        tags: ['Content Creation', 'AI Tools', 'Creativity'],
+        id: 'post-10'
+      },
+      {
+        category: 'productivity',
+        title: 'Why Your Marketing Prompts Aren't Working',
+        excerpt: 'Common mistakes that make AI prompts ineffective for marketing, plus the exact framework to create prompts that drive real business results.',
+        author: 'Sophia Chen',
+        date: 'July 28, 2025',
+        readTime: '5 min',
+        tags: ['Marketing', 'Prompts', 'Optimization'],
+        id: 'post-11'
+      },
+      {
+        category: 'business-tips',
+        title: 'Building a Profitable AI Consulting Practice',
+        excerpt: 'Step-by-step guide to starting and scaling an AI consulting business, including pricing strategies, service packages, and client acquisition.',
+        author: 'Marcus Johnson',
+        date: 'July 25, 2025',
+        readTime: '11 min',
+        tags: ['Consulting', 'Business Model', 'AI Services'],
+        id: 'post-12'
+      }
+    ];
+
+    let additionalPostsLoaded = false;
+
+    // Mobile menu toggle and blog functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navClose = document.getElementById('navClose');
+
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+
+        if (navClose) {
+          navClose.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        }
+
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+          });
+        });
+      }
+
+      const blogPosts = document.querySelectorAll('.blog-post, .featured-post');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const searchInput = document.getElementById('blogSearch');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      const postModal = document.getElementById('postModal');
+      const modalClose = document.getElementById('modalClose');
+      const fullPostContent = document.getElementById('fullPostContent');
+
+      // Read more functionality
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('read-more')) {
+          e.preventDefault();
+          const postElement = e.target.closest('[data-post-id]');
+          const postId = postElement.getAttribute('data-post-id');
+
+          if (fullPosts[postId]) {
+            fullPostContent.innerHTML = fullPosts[postId].content;
+            postModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      });
+
+      // Close modal functionality
+      modalClose.addEventListener('click', function() {
+        postModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+
+      postModal.addEventListener('click', function(e) {
+        if (e.target === postModal) {
+          postModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && postModal.style.display === 'block') {
+          postModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Category filtering
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.dataset.category;
+
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+          allPosts.forEach(post => {
+            if (category === 'all' || post.dataset.category === category) {
+              post.style.display = 'block';
+            } else {
+              post.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+
+        const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+        allPosts.forEach(post => {
+          const title = post.querySelector('.post-title, .featured-title').textContent.toLowerCase();
+          const excerpt = post.querySelector('.post-excerpt, .featured-excerpt').textContent.toLowerCase();
+
+          if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+            post.style.display = 'block';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+
+        if (searchTerm) {
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          document.querySelector('[data-category="all"]').classList.add('active');
+        }
+      });
+
+      // Load more functionality
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+          if (!additionalPostsLoaded) {
+            this.textContent = 'Loading...';
+
+            setTimeout(() => {
+              const blogPostsContainer = document.getElementById('blogPostsContainer');
+
+              additionalPosts.forEach(post => {
+                const postHTML = \`
+                  <article class="blog-post" data-category="\${post.category}" data-post-id="\${post.id}">
+                    <div class="post-content">
+                      <div class="post-category">\${post.category.charAt(0).toUpperCase() + post.category.slice(1).replace('-', ' ')}</div>
+                      <div class="post-meta">
+                        <span>📅 \${post.date}</span>
+                        <span>👤 \${post.author}</span>
+                        <span>⏱️ \${post.readTime} read</span>
+                      </div>
+                      <h3 class="post-title">\${post.title}</h3>
+                      <p class="post-excerpt">\${post.excerpt}</p>
+                      <div class="post-tags">
+                        \${post.tags.map(tag => \`<a href="#" class="tag">\${tag}</a>\`).join('')}
+                      </div>
+                      <span class="read-more">Continue Reading →</span>
+                    </div>
+                  </article>
+                \`;
+                blogPostsContainer.insertAdjacentHTML('beforeend', postHTML);
+              });
+
+              this.textContent = 'All Articles Loaded';
+              this.disabled = true;
+              this.style.opacity = '0.6';
+              additionalPostsLoaded = true;
+            }, 1000);
+          }
+        });
+      }
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          alert(\`Thank you! We'll send AI automation tips to \${email} weekly.\`);
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
