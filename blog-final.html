@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Smart Prompt Solutions</title>
+  <meta name="description" content="Latest insights on AI automation, business productivity, and prompt engineering. Learn how to leverage AI tools to scale your business efficiently.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #ffffff;
+      background-color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Screen reader only content */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      min-height: 60px;
+    }
+
+    .nav__brand {
+      flex-shrink: 0;
+    }
+
+    .nav__logo {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .nav__menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav__item {
+      margin: 0;
+    }
+
+    .nav__link {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+
+    .nav__link:hover {
+      color: #4fd1c7;
+    }
+
+    .nav__link.active {
+      color: #4fd1c7;
+    }
+
+    .nav__cta {
+      background-color: #4fd1c7;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav__cta:hover {
+      background: #3cb8b2;
+    }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 2px 0;
+      transition: all 0.15s ease;
+      border-radius: 2px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .nav__menu .dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      z-index: 2000;
+      min-width: 180px;
+    }
+
+    .nav__menu .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+
+    .nav__menu .dropdown-menu li {
+      margin: 0;
+    }
+
+    .nav__menu .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav__menu .dropdown-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .hero__title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #4fd1c7 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Blog Controls */
+    .blog-controls {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .controls-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-box label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #2a2a2a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #4fd1c7;
+      box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .category-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .category-btn:focus {
+      outline: 2px solid #4fd1c7;
+      outline-offset: 2px;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #4fd1c7;
+      color: #000000;
+      border-color: #4fd1c7;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 80px 0;
+    }
+
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    /* Featured Post */
+    .featured-post {
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 3rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .featured-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(79, 209, 199, 0.1);
+    }
+
+    .featured-badge {
+      background: #4fd1c7;
+      color: #000000;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin: 1rem 1.5rem 0;
+      border-radius: 4px;
+    }
+
+    .featured-content {
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .featured-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .featured-excerpt {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .featured-full-content {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .featured-full-content.expanded {
+      display: block;
+    }
+
+    .featured-full-content h2 {
+      color: #4fd1c7;
+      margin: 2rem 0 1rem;
+      font-size: 1.4rem;
+    }
+
+    .featured-full-content h3 {
+      color: #ffffff;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .featured-full-content ul,
+    .featured-full-content ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .featured-full-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-full-content blockquote {
+      background: rgba(79, 209, 199, 0.1);
+      border-left: 4px solid #4fd1c7;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    .read-more {
+      color: #4fd1c7;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      padding: 0;
+    }
+
+    .read-more:hover {
+      color: #3cb8b2;
+    }
+
+    .read-more:focus {
+      outline: 2px solid #4fd1c7;
+      outline-offset: 2px;
+    }
+
+    /* Blog Posts Grid */
+    .blog-posts {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .blog-post {
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(79, 209, 199, 0.1);
+    }
+
+    .post-content {
+      padding: 1.5rem;
+    }
+
+    .post-category {
+      background: rgba(79, 209, 199, 0.2);
+      color: #4fd1c7;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .post-excerpt {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .post-full-content {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .post-full-content.expanded {
+      display: block;
+    }
+
+    .post-full-content h2 {
+      color: #4fd1c7;
+      margin: 2rem 0 1rem;
+      font-size: 1.4rem;
+    }
+
+    .post-full-content h3 {
+      color: #ffffff;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .post-full-content ul,
+    .post-full-content ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .post-full-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .post-full-content blockquote {
+      background: rgba(79, 209, 199, 0.1);
+      border-left: 4px solid #4fd1c7;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: #333333;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .tag:hover,
+    .tag:focus {
+      background: #4fd1c7;
+      color: #000000;
+    }
+
+    /* Sidebar */
+    .sidebar-section {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+      color: #4fd1c7;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .sidebar-list a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      display: block;
+      line-height: 1.4;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      transition: color 0.3s;
+    }
+
+    .sidebar-list a:hover,
+    .sidebar-list a:focus {
+      color: #4fd1c7;
+    }
+
+    .sidebar-meta {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: block;
+    }
+
+    /* Popular Categories Spacing */
+    .category-count {
+      color: #4fd1c7;
+      font-weight: normal;
+      margin-left: 0.5rem;
+    }
+
+    /* Newsletter Signup */
+    .newsletter-signup {
+      background: linear-gradient(135deg, rgba(79, 209, 199, 0.1) 0%, rgba(79, 209, 199, 0.05) 100%);
+      border: 1px solid rgba(79, 209, 199, 0.3);
+    }
+
+    .newsletter-signup p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .newsletter-form label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .newsletter-form input {
+      padding: 0.75rem;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #4fd1c7;
+      box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+    }
+
+    .newsletter-form button {
+      background: #4fd1c7;
+      color: #000000;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .newsletter-form button:hover {
+      background: #3cb8b2;
+    }
+
+    .newsletter-form button:focus {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+
+    /* Success message for newsletter */
+    .newsletter-success {
+      background: #28a745;
+      color: #ffffff;
+      padding: 0.75rem;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    /* Live region for announcements */
+    #announcements {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* Combined Professional Footer CSS */
+    .footer {
+      background: #0f0f0f;
+      padding: 3rem 0 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__content {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer__section h3 {
+      color: #4fd1c7;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .footer__section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer__section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer__section ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.9rem;
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .footer__section ul li a:hover {
+      color: #4fd1c7;
+    }
+
+    .footer__section ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #4fd1c7;
+      transition: width 0.3s ease;
+    }
+
+    .footer__section ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Social Media Section Specific Styling */
+    .footer__social-description {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #2a2a2a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #4fd1c7;
+      color: #000000;
+      border-color: #4fd1c7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 209, 199, 0.3);
+    }
+
+    .social-link:focus {
+      outline: 2px solid #4fd1c7;
+      outline-offset: 2px;
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Footer Bottom */
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 1024px) {
+      .footer__content {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer__social {
+        grid-column: span 3;
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1001;
+        overflow-y: auto;
+      }
+
+      .nav__menu.active {
+        left: 0;
+      }
+
+      .nav__item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav__link {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+        display: block;
+        width: 100%;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .nav__toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-4px, 4px);
+      }
+
+      .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav__toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -4px);
+      }
+
+      .hero__title {
+        font-size: 2.5rem;
+      }
+
+      .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: none;
+      }
+
+      .category-filters {
+        justify-content: center;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .nav__menu .dropdown-menu {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding-left: 1rem;
+      }
+
+      .footer {
+        padding: 2rem 0 1rem;
+      }
+
+      .footer__content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .footer__social {
+        grid-column: span 2;
+      }
+
+      .social-links {
+        gap: 0.75rem;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+
+      .social-link svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer__social {
+        grid-column: span 1;
+      }
+
+      .footer__section {
+        margin-bottom: 1.5rem;
+      }
+
+      .footer__section:last-child {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Live region for screen reader announcements -->
+  <div id="announcements" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container">
+      <div class="nav__brand">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ffc2f8ff-70fe-43a7-9380-aea0bff1859d.png" alt="Smart Prompt Solutions" class="nav__logo">
+      </div>
+      <ul class="nav__menu" id="navMenu">
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="about-updated.html" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="features-updated.html" class="nav__link">Features</a></li>
+        <li class="nav__item"><a href="pricing-updated.html" class="nav__link">Pricing</a></li>
+        <li class="nav__item dropdown">
+          <a href="#!" class="nav__link dropdown-toggle">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="case-studies-updated.html" class="nav__link">Case Studies</a></li>
+            <li><a href="faq-updated.html" class="nav__link">FAQ</a></li>
+            <li><a href="blog-final.html" class="nav__link active">Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a href="contact-updated.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="free-trial-updated.html" class="nav__cta">Try Free</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title">Smart Insights Blog</h1>
+        <p class="hero__subtitle">Latest strategies, tips, and insights on AI automation, business productivity, and prompt engineering to help you scale smarter.</p>
+      </div>
+    </section>
+
+    <!-- Blog Controls -->
+    <section class="blog-controls">
+      <div class="container">
+        <div class="controls-container">
+          <div class="search-box">
+            <label for="blogSearch">Search Articles</label>
+            <input type="text" id="blogSearch" placeholder="Search articles..." aria-describedby="search-help">
+            <span id="search-help" class="sr-only">Search through all blog posts by title and content</span>
+          </div>
+
+          <div class="category-filters" role="group" aria-label="Filter posts by category">
+            <button class="category-btn active" data-category="all" aria-pressed="true">All Posts</button>
+            <button class="category-btn" data-category="ai-automation" aria-pressed="false">AI Automation</button>
+            <button class="category-btn" data-category="productivity" aria-pressed="false">Productivity</button>
+            <button class="category-btn" data-category="business-tips" aria-pressed="false">Business Tips</button>
+            <button class="category-btn" data-category="tutorials" aria-pressed="false">Tutorials</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="blog-layout">
+          <div class="blog-main">
+            <!-- Featured Post -->
+            <article class="featured-post" data-category="ai-automation">
+              <div class="featured-badge">FEATURED</div>
+              <div class="featured-content">
+                <div class="featured-meta">
+                  <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> September 1, 2025</span>
+                  <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> Sarah Chen</span>
+                  <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 8 min read</span>
+                </div>
+                <h2 class="featured-title">How AI Prompts Helped Me Scale My Agency to $100K/Month</h2>
+                <p class="featured-excerpt">A detailed case study of how one marketing agency owner used Smart Prompt Solutions to automate client content creation, reduce workload by 75%, and triple revenue in just 6 months. Includes specific prompts and workflows that you can implement today.</p>
+                
+                <div class="featured-full-content" id="featured-content">
+                  <h2>The Breaking Point</h2>
+                  <p>Six months ago, I was drowning. My marketing agency had 15 clients, and I was working 70-hour weeks just to keep up with content demands. Client complaints were increasing, my team was burning out, and I couldn't take on any new business without compromising quality.</p>
+
+                  <p>Today, we serve 25 clients, my team works normal hours, and we just crossed $100K in monthly recurring revenue. The game-changer? AI prompts from Smart Prompt Solutions.</p>
+
+                  <h2>The Transformation: Month by Month</h2>
+                  
+                  <h3>Month 1: Testing and Implementation</h3>
+                  <p>I started with three core prompts: social media content, email marketing, and blog post outlines. The initial results saved us about 15 hours per week across all clients.</p>
+
+                  <h3>Month 2: Scaling the System</h3>
+                  <p>Encouraged by early results, I implemented prompts for:</p>
+                  <ul>
+                    <li>Ad copy creation</li>
+                    <li>Client reporting</li>
+                    <li>Content calendar planning</li>
+                    <li>SEO optimization</li>
+                  </ul>
+                  <p>Time savings increased to 25 hours per week. I started taking on new clients.</p>
+
+                  <h3>Month 3-6: Exponential Growth</h3>
+                  <p>With proven systems in place, I could confidently pitch to larger clients. We went from 15 clients to 25, increased our average retainer by 40%, and reduced our average time per client by 60%.</p>
+
+                  <h2>The Numbers: Real ROI Data</h2>
+                  <ul>
+                    <li><strong>Time savings:</strong> 35 hours per week (equivalent to hiring a full-time employee)</li>
+                    <li><strong>Client capacity:</strong> Increased from 15 to 25 clients with same team size</li>
+                    <li><strong>Revenue growth:</strong> From $45K/month to $100K/month in 6 months</li>
+                    <li><strong>Profit margins:</strong> Increased by 32% due to efficiency gains</li>
+                    <li><strong>Client satisfaction:</strong> NPS score improved from 7.2 to 9.1</li>
+                  </ul>
+
+                  <blockquote>"The agencies that survive and thrive in the AI era won't be the ones with the most expensive tools—they'll be the ones with the best systems and processes."</blockquote>
+
+                  <p>Six months ago, I was a burnt-out agency owner working 70-hour weeks for mediocre results. Today, I run a thriving $100K/month agency with a happy team and delighted clients. The difference? Professional AI prompts and the discipline to implement them systematically.</p>
+                </div>
+
+                <button class="read-more" onclick="toggleFeaturedContent(this)" aria-expanded="false" aria-controls="featured-content">Continue Reading →</button>
+              </div>
+            </article>
+
+            <!-- Blog Posts -->
+            <div class="blog-posts">
+              <!-- Post 1 -->
+              <article class="blog-post" data-category="productivity">
+                <div class="post-content">
+                  <div class="post-category">Productivity</div>
+                  <div class="post-meta">
+                    <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> August 28, 2025</span>
+                    <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> Mike Rodriguez</span>
+                    <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 15 min read</span>
+                  </div>
+                  <h3 class="post-title">10 Game-Changing Prompts That Will Save You 15 Hours This Week</h3>
+                  <p class="post-excerpt">Stop spending hours on repetitive tasks. These 10 battle-tested prompts will automate your most time-consuming business activities, from email responses to content planning. Each prompt comes with real examples, implementation guides, and measurable time savings.</p>
+                  
+                  <div class="post-full-content" id="post1-content">
+                    <h2>The Time Crisis Every Entrepreneur Faces</h2>
+                    <p>Time is your most valuable asset as an entrepreneur. Yet most business owners spend hours on repetitive tasks that could be automated in minutes. After analyzing productivity data from over 1,000 entrepreneurs, I've identified the 10 most time-consuming business activities and created AI prompts that can handle them automatically.</p>
+
+                    <h2>1. Email Response Automation (Time Saved: 3 hours/week)</h2>
+                    <p>Emails consume 2.6 hours of the average executive's day. This prompt handles 80% of routine responses:</p>
+                    <blockquote><strong>Professional Email Responder:</strong> Analyze this email and draft a professional response: [PASTE EMAIL HERE]. Response guidelines: maintain professional but friendly tone, address all questions/requests specifically, include relevant next steps or actions, keep under 150 words unless complex topic.</blockquote>
+
+                    <h2>2. Meeting Summary Generator (Time Saved: 2 hours/week)</h2>
+                    <p>Stop spending 30 minutes after each meeting writing summaries:</p>
+                    <blockquote><strong>Meeting Minutes Creator:</strong> Convert these meeting notes into a professional summary with Key Decisions, Action Items, Next Steps, and Follow-up Required sections.</blockquote>
+
+                    <h2>3. Social Media Content Creator (Time Saved: 2.5 hours/week)</h2>
+                    <p>Creating engaging social content consistently is challenging:</p>
+                    <blockquote><strong>Social Media Post Generator:</strong> Create 5 social media posts about [TOPIC] for [PLATFORM]. Include relevant hashtags, engagement hooks, and value-driven content that educates, inspires, or entertains your audience.</blockquote>
+
+                    <h2>Implementation Strategy: Your 7-Day Action Plan</h2>
+                    <p>Don't try to implement all 10 prompts at once. Here's a proven rollout plan:</p>
+                    <ul>
+                      <li><strong>Days 1-2:</strong> Start with Email Responses and Meeting Summaries</li>
+                      <li><strong>Days 3-4:</strong> Add Social Media and Blog Outlines</li>
+                      <li><strong>Days 5-6:</strong> Implement Customer Service and Proposals</li>
+                      <li><strong>Day 7:</strong> Add strategic planning tools</li>
+                    </ul>
+
+                    <p>The entrepreneurs who thrive in the AI era won't be those who work the hardest—they'll be those who work the smartest. These 10 prompts are your starting point for building a more efficient, profitable, and sustainable business.</p>
+                  </div>
+
+                  <div class="post-tags">
+                    <a href="#" class="tag">Time Management</a>
+                    <a href="#" class="tag">Automation</a>
+                    <a href="#" class="tag">Email</a>
+                    <a href="#" class="tag">Productivity</a>
+                  </div>
+                  <button class="read-more" onclick="togglePostContent(this, 'post1-content')" aria-expanded="false" aria-controls="post1-content">Continue Reading →</button>
+                </div>
+              </article>
+
+              <!-- Post 2 -->
+              <article class="blog-post" data-category="tutorials">
+                <div class="post-content">
+                  <div class="post-category">Tutorial</div>
+                  <div class="post-meta">
+                    <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> August 25, 2025</span>
+                    <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> Lisa Thompson</span>
+                    <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 20 min read</span>
+                  </div>
+                  <h3 class="post-title">Step-by-Step: Building Your First AI Content Calendar</h3>
+                  <p class="post-excerpt">Learn how to create a 30-day content calendar in under 20 minutes using AI prompts. This comprehensive guide includes templates, examples, and troubleshooting tips for every social platform including LinkedIn, Twitter, Instagram, and Facebook.</p>
+                  
+                  <div class="post-full-content" id="post2-content">
+                    <h2>Why Most Content Calendars Fail</h2>
+                    <p>Content marketing is the lifeblood of modern business, but planning and creating consistent, engaging content feels overwhelming for most entrepreneurs. The average business owner spends 5-8 hours weekly just planning social media posts, blog content, and email campaigns.</p>
+
+                    <p>What if I told you that you could create a complete 30-day content calendar in under 20 minutes? Not just titles and topics, but full posts with captions, hashtags, and optimal posting times—all tailored specifically to your audience and brand voice.</p>
+
+                    <h2>The 4-Pillar Content Framework</h2>
+                    <p>Before generating content, we need a strategic foundation. Every successful content calendar balances four types of posts:</p>
+
+                    <h3>1. Educational Content (40% of posts)</h3>
+                    <p><strong>Purpose:</strong> Build authority and provide value<br>
+                    <strong>Examples:</strong> How-to guides, tips, industry insights, tutorials<br>
+                    <strong>Goal:</strong> Position you as the expert in your field</p>
+
+                    <h3>2. Inspirational Content (25% of posts)</h3>
+                    <p><strong>Purpose:</strong> Motivate and connect emotionally<br>
+                    <strong>Examples:</strong> Success stories, quotes, behind-the-scenes, personal journey<br>
+                    <strong>Goal:</strong> Build personal brand and emotional connection</p>
+
+                    <h2>Step 1: Define Your Content Strategy (5 minutes)</h2>
+                    <blockquote><strong>Content Strategy Builder:</strong> Help me define a content strategy for my business. Based on my industry [YOUR INDUSTRY], target audience [WHO YOU SERVE], and business goals [YOUR OBJECTIVES], provide content pillars, audience pain points to address, key messages, and success metrics to track.</blockquote>
+
+                    <h2>Step 2: Generate Platform-Specific Content (10 minutes)</h2>
+                    <blockquote><strong>LinkedIn Content Creator:</strong> Generate 30 LinkedIn posts with 12 educational, 8 inspirational, 6 promotional, and 4 engagement posts. For each post provide: hook, main content, call-to-action, hashtags, and optimal posting time.</blockquote>
+
+                    <h2>Your 30-Day Content Calendar Template</h2>
+                    <ul>
+                      <li><strong>Week 1:</strong> Introduction & Authority Building</li>
+                      <li><strong>Week 2:</strong> Value Delivery & Engagement</li>
+                      <li><strong>Week 3:</strong> Social Proof & Community Building</li>
+                      <li><strong>Week 4:</strong> Promotional & Planning</li>
+                    </ul>
+
+                    <p>The best content calendar is the one you'll actually use consistently. Start simple, build momentum, and expand gradually as the system becomes second nature. Your audience is waiting for your unique insights and expertise.</p>
+                  </div>
+
+                  <div class="post-tags">
+                    <a href="#" class="tag">Content Marketing</a>
+                    <a href="#" class="tag">Social Media</a>
+                    <a href="#" class="tag">Planning</a>
+                    <a href="#" class="tag">Templates</a>
+                  </div>
+                  <button class="read-more" onclick="togglePostContent(this, 'post2-content')" aria-expanded="false" aria-controls="post2-content">Continue Reading →</button>
+                </div>
+              </article>
+
+              <!-- Post 3 -->
+              <article class="blog-post" data-category="business-tips">
+                <div class="post-content">
+                  <div class="post-category">Business Tips</div>
+                  <div class="post-meta">
+                    <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> August 22, 2025</span>
+                    <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> David Park</span>
+                    <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 12 min read</span>
+                  </div>
+                  <h3 class="post-title">Why 87% of Small Businesses Fail at AI Implementation (And How to Avoid It)</h3>
+                  <p class="post-excerpt">Most entrepreneurs approach AI wrong from day one. Here are the 5 critical mistakes that doom AI projects before they start, plus a simple 4-step framework that guarantees success. Learn from real failures and wins from over 500 businesses.</p>
+                  
+                  <div class="post-full-content" id="post3-content">
+                    <h2>The Hidden Cost of AI Failure</h2>
+                    <p>Last month, I surveyed 500 small business owners about their AI implementation experiences. The results were sobering: 87% had attempted to integrate AI tools into their operations, but only 13% considered their efforts successful.</p>
+
+                    <p>Even more concerning? 62% of failed implementations actually made their businesses less efficient, not more. Teams became confused, processes broke down, and many owners abandoned AI altogether.</p>
+
+                    <h2>The 5 Fatal Mistakes (And How to Avoid Them)</h2>
+
+                    <h3>Mistake #1: Starting with Complex Tools Instead of Simple Prompts</h3>
+                    <p><strong>What 87% do wrong:</strong> Jump straight into expensive, complex AI platforms like enterprise chatbots, advanced analytics suites, or custom AI development.</p>
+                    
+                    <p><strong>Why it fails:</strong> Complex tools require extensive training, integration, and ongoing maintenance. Small teams get overwhelmed trying to learn systems designed for enterprises.</p>
+
+                    <p><strong>The 13% approach:</strong> Start with AI prompts for existing tools like ChatGPT, Claude, or Gemini. Master prompt engineering before investing in specialized platforms.</p>
+
+                    <h3>Mistake #2: Trying to Automate Everything at Once</h3>
+                    <p><strong>What 87% do wrong:</strong> Attempt to automate their entire business overnight. They try to implement AI for customer service, content creation, sales, operations, and accounting simultaneously.</p>
+
+                    <p><strong>The 13% approach:</strong> Follow the "One Process Per Month" rule. Pick one business process, perfect the AI solution, ensure team adoption, then move to the next.</p>
+
+                    <h2>The 4-Step Success Framework</h2>
+                    <ol>
+                      <li><strong>Step 1: Audit and Prioritize (Week 1)</strong> - List all repetitive tasks and choose the highest-impact, lowest-complexity task first</li>
+                      <li><strong>Step 2: Research and Test (Week 2)</strong> - Find 3-5 potential solutions and test with real work examples</li>
+                      <li><strong>Step 3: Plan and Train (Week 3)</strong> - Create implementation plan and train key team members</li>
+                      <li><strong>Step 4: Implement and Optimize (Week 4+)</strong> - Roll out with close support and continuous optimization</li>
+                    </ol>
+
+                    <blockquote>"The agencies that survive and thrive in the AI era won't be the ones with the most expensive tools—they'll be the ones with the best systems and processes."</blockquote>
+
+                    <p>Don't become another AI failure statistic. Learn from the mistakes of others and follow the proven framework that works. Your competition is already moving ahead with AI. The question isn't whether you'll implement AI—it's whether you'll be in the successful 13% or the struggling 87%.</p>
+                  </div>
+
+                  <div class="post-tags">
+                    <a href="#" class="tag">Strategy</a>
+                    <a href="#" class="tag">Implementation</a>
+                    <a href="#" class="tag">Common Mistakes</a>
+                    <a href="#" class="tag">Framework</a>
+                  </div>
+                  <button class="read-more" onclick="togglePostContent(this, 'post3-content')" aria-expanded="false" aria-controls="post3-content">Continue Reading →</button>
+                </div>
+              </article>
+
+              <!-- Post 4 -->
+              <article class="blog-post" data-category="ai-automation">
+                <div class="post-content">
+                  <div class="post-category">AI Automation</div>
+                  <div class="post-meta">
+                    <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> August 19, 2025</span>
+                    <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> Jessica Lee</span>
+                    <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 10 min read</span>
+                  </div>
+                  <h3 class="post-title">The Ultimate Guide to AI Customer Service Automation</h3>
+                  <p class="post-excerpt">Transform your customer support from reactive to proactive with AI automation. Learn how to build systems that resolve 80% of inquiries instantly while improving customer satisfaction scores by 40%.</p>
+                  
+                  <div class="post-full-content" id="post4-content">
+                    <h2>The Customer Service Revolution</h2>
+                    <p>Customer service is experiencing a fundamental transformation. While traditional support models rely on human agents handling every inquiry, forward-thinking businesses are leveraging AI to create faster, more consistent, and more scalable support experiences.</p>
+
+                    <p>The results speak for themselves: businesses implementing AI customer service see 80% of inquiries resolved instantly, 40% improvement in customer satisfaction scores, and 60% reduction in support costs.</p>
+
+                    <h2>The 5-Layer AI Support System</h2>
+
+                    <h3>Layer 1: Instant Response Generation</h3>
+                    <p>The foundation of AI customer service is instant, accurate responses to common questions. This system handles:</p>
+                    <ul>
+                      <li>Order status inquiries</li>
+                      <li>Policy questions</li>
+                      <li>Basic troubleshooting</li>
+                      <li>Account information requests</li>
+                    </ul>
+
+                    <blockquote><strong>Customer Service Response Builder:</strong> Create a helpful customer service response for this inquiry: [PASTE CUSTOMER MESSAGE]. Response should acknowledge their specific concern, provide clear actionable solution, maintain empathetic professional tone, and end with follow-up offer.</blockquote>
+
+                    <h3>Layer 2: Intelligent Escalation</h3>
+                    <p>Not every inquiry can be automated, but AI can intelligently identify which issues need human attention and route them to the right specialist immediately.</p>
+
+                    <h2>Implementation Strategy</h2>
+
+                    <h3>Week 1: Assessment and Planning</h3>
+                    <ul>
+                      <li>Analyze your top 20 most common support tickets</li>
+                      <li>Identify which can be automated vs. need human touch</li>
+                      <li>Create response templates for automated inquiries</li>
+                      <li>Set up tracking and measurement systems</li>
+                    </ul>
+
+                    <h2>Measuring Success</h2>
+                    <p>Track these key metrics to optimize your AI customer service:</p>
+                    <ul>
+                      <li><strong>Resolution Rate:</strong> Percentage of inquiries resolved without human intervention</li>
+                      <li><strong>Response Time:</strong> Average time from inquiry to resolution</li>
+                      <li><strong>Customer Satisfaction:</strong> CSAT scores for AI-handled vs. human-handled tickets</li>
+                      <li><strong>Cost Per Ticket:</strong> Total support costs divided by number of tickets handled</li>
+                    </ul>
+
+                    <p>The businesses that win in customer service won't be those with the most support agents—they'll be those with the smartest systems that combine AI efficiency with human empathy where it matters most.</p>
+                  </div>
+
+                  <div class="post-tags">
+                    <a href="#" class="tag">Customer Service</a>
+                    <a href="#" class="tag">AI Automation</a>
+                    <a href="#" class="tag">Support Systems</a>
+                    <a href="#" class="tag">Customer Experience</a>
+                  </div>
+                  <button class="read-more" onclick="togglePostContent(this, 'post4-content')" aria-expanded="false" aria-controls="post4-content">Continue Reading →</button>
+                </div>
+              </article>
+
+              <!-- Post 5 -->
+              <article class="blog-post" data-category="tutorials">
+                <div class="post-content">
+                  <div class="post-category">Tutorial</div>
+                  <div class="post-meta">
+                    <span><span class="sr-only">Published on</span><span aria-label="Date">📅</span> August 16, 2025</span>
+                    <span><span class="sr-only">Author</span><span aria-label="Author">👤</span> Marcus Johnson</span>
+                    <span><span class="sr-only">Reading time</span><span aria-label="Reading time">⏱️</span> 18 min read</span>
+                  </div>
+                  <h3 class="post-title">Building a $10K/Month AI Consulting Business from Scratch</h3>
+                  <p class="post-excerpt">Complete roadmap to starting and scaling an AI consulting practice. From identifying your niche to landing high-value clients, this guide covers everything you need to build a profitable AI consulting business in 90 days.</p>
+                  
+                  <div class="post-full-content" id="post5-content">
+                    <h2>The AI Consulting Gold Rush</h2>
+                    <p>We're in the middle of an AI transformation that rivals the early days of the internet. Every business knows they need AI, but most don't know where to start. This creates an unprecedented opportunity for knowledgeable consultants to bridge the gap.</p>
+
+                    <p>In the past 12 months, I've built my AI consulting practice from zero to over $10K monthly recurring revenue. Here's exactly how I did it—and how you can too.</p>
+
+                    <h2>Phase 1: Foundation (Days 1-30)</h2>
+
+                    <h3>Choose Your Specialization</h3>
+                    <p>The biggest mistake new AI consultants make is being generalists. The market rewards specialists. Choose one of these high-demand niches:</p>
+                    <ul>
+                      <li><strong>Content Marketing Automation:</strong> Help businesses automate blog posts, social media, and email campaigns</li>
+                      <li><strong>Customer Service AI:</strong> Implement chatbots and automated support systems</li>
+                      <li><strong>Sales Process Automation:</strong> Automate lead qualification, follow-up sequences, and proposal generation</li>
+                      <li><strong>Operations Optimization:</strong> Streamline workflows, automate reporting, and optimize processes</li>
+                    </ul>
+
+                    <h2>Phase 2: Client Acquisition (Days 31-60)</h2>
+
+                    <h3>The Content-First Approach</h3>
+                    <p>Instead of cold outreach, attract clients with valuable content:</p>
+
+                    <blockquote><strong>AI Consulting Content Generator:</strong> Create a LinkedIn post about [SPECIFIC AI TOPIC] that demonstrates expertise, provides actionable value, and positions me as the go-to expert for [TARGET AUDIENCE]. Include a soft call-to-action for consultation.</blockquote>
+
+                    <h3>Pricing Strategy That Works</h3>
+                    <p>Start with these proven pricing models:</p>
+                    <ul>
+                      <li><strong>Discovery Audit:</strong> $2,500 - Comprehensive AI readiness assessment</li>
+                      <li><strong>Quick Win Implementation:</strong> $5,000 - Automate one specific process</li>
+                      <li><strong>Full Transformation:</strong> $15,000+ - Complete AI integration project</li>
+                      <li><strong>Monthly Retainer:</strong> $3,000-8,000 - Ongoing optimization and support</li>
+                    </ul>
+
+                    <h2>Your 90-Day Action Plan</h2>
+                    <ol>
+                      <li><strong>Days 1-30:</strong> Choose niche, build expertise, create case studies</li>
+                      <li><strong>Days 31-60:</strong> Launch content marketing, start client outreach, close first deals</li>
+                      <li><strong>Days 61-90:</strong> Systematize processes, expand services, build partnerships</li>
+                    </ol>
+
+                    <p>The AI consulting market is growing exponentially, but it won't stay underserved forever. The consultants who establish themselves now will dominate as the market matures. The question isn't whether AI consulting is a good opportunity—it's whether you'll seize it before someone else does.</p>
+                  </div>
+
+                  <div class="post-tags">
+                    <a href="#" class="tag">Consulting</a>
+                    <a href="#" class="tag">Business Model</a>
+                    <a href="#" class="tag">AI Services</a>
+                    <a href="#" class="tag">Entrepreneurship</a>
+                  </div>
+                  <button class="read-more" onclick="togglePostContent(this, 'post5-content')" aria-expanded="false" aria-controls="post5-content">Continue Reading →</button>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="blog-sidebar">
+            <!-- Recent Posts -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <ul class="sidebar-list">
+                <li>
+                  <a href="#">5 ChatGPT Prompts Every Entrepreneur Needs</a>
+                  <span class="sidebar-meta">August 10, 2025</span>
+                </li>
+                <li>
+                  <a href="#">Automating Your Social Media Strategy</a>
+                  <span class="sidebar-meta">August 7, 2025</span>
+                </li>
+                <li>
+                  <a href="#">The ROI of AI: Real Numbers from 100 Businesses</a>
+                  <span class="sidebar-meta">August 4, 2025</span>
+                </li>
+                <li>
+                  <a href="#">Content Creation in the Age of AI</a>
+                  <span class="sidebar-meta">August 1, 2025</span>
+                </li>
+                <li>
+                  <a href="#">Why Your Marketing Prompts Aren't Working</a>
+                  <span class="sidebar-meta">July 28, 2025</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Popular Categories -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Popular Categories</h3>
+              <ul class="sidebar-list">
+                <li><a href="#">AI Automation<span class="category-count">(24 posts)</span></a></li>
+                <li><a href="#">Productivity Tips<span class="category-count">(18 posts)</span></a></li>
+                <li><a href="#">Business Strategy<span class="category-count">(15 posts)</span></a></li>
+                <li><a href="#">Tutorials & Guides<span class="category-count">(12 posts)</span></a></li>
+                <li><a href="#">Case Studies<span class="category-count">(9 posts)</span></a></li>
+              </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="sidebar-section newsletter-signup">
+              <h3 class="sidebar-title">Never Miss an Update</h3>
+              <p>Get the latest AI automation tips and exclusive prompt templates delivered to your inbox weekly.</p>
+              <form class="newsletter-form" id="newsletterForm">
+                <label for="newsletter-email">Email Address</label>
+                <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+              </form>
+              <div class="newsletter-success" id="newsletter-success" role="alert">
+                Thank you for subscribing! Check your email for confirmation.
+              </div>
+            </div>
+
+            <!-- Popular Tags -->
+            <div class="sidebar-section">
+              <h3 class="sidebar-title">Popular Tags</h3>
+              <div class="post-tags">
+                <a href="#" class="tag">ChatGPT</a>
+                <a href="#" class="tag">Automation</a>
+                <a href="#" class="tag">Content Marketing</a>
+                <a href="#" class="tag">Email Marketing</a>
+                <a href="#" class="tag">Productivity</a>
+                <a href="#" class="tag">Social Media</a>
+                <a href="#" class="tag">Sales</a>
+                <a href="#" class="tag">Time Management</a>
+                <a href="#" class="tag">Templates</a>
+                <a href="#" class="tag">Workflows</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <!-- Company Section -->
+        <div class="footer__section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about-updated.html">About</a></li>
+            <li><a href="blog-final.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="press.html">Press</a></li>
+          </ul>
+        </div>
+
+        <!-- Product Section -->
+        <div class="footer__section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features-updated.html">Features</a></li>
+            <li><a href="pricing-updated.html">Pricing</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+            <li><a href="free-trial-updated.html">Free Sample</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="footer__section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="case-studies-updated.html">Case Studies</a></li>
+            <li><a href="faq-updated.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Section -->
+        <div class="footer__section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms-of-service-updated.html">Terms of Service</a></li>
+            <li><a href="privacy-policy-updated.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect With Us Section -->
+        <div class="footer__section footer__social">
+          <h3>Connect With Us</h3>
+          <p class="footer__social-description">Follow us for the latest AI automation tips and updates</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/company/smartpromptsolutions" target="_blank" class="social-link" aria-label="Follow us on LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+
+            <a href="https://x.com/smart_prompts1?t=Uhe6dtIcf7KKO06Bt9TvEg&s=09" target="_blank" class="social-link" aria-label="Follow us on X (Twitter)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+            </a>
+
+            <a href="https://threads.net/@smartpromptsoultions" target="_blank" class="social-link" aria-label="Follow us on Threads">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.181 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.74-1.774-.513-.624-1.267-.935-2.321-.962-1.754-.043-2.916.632-3.244 1.814l-1.947-.581c.525-1.834 2.317-2.76 4.395-2.7 1.57.034 2.82.493 3.635 1.334.897.926 1.407 2.334 1.52 4.19.949.319 1.706.897 2.207 1.686.746 1.171.824 2.821-.639 4.677C18.618 23.238 15.59 24.018 12.18 24"/>
+              </svg>
+            </a>
+
+            <a href="https://facebook.com/profile.php?id=61578890644974" target="_blank" class="social-link" aria-label="Follow us on Facebook">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/smartpromptsoultions?igsh=emFkYWtqb3pvNWs5" target="_blank" class="social-link" aria-label="Follow us on Instagram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+              </svg>
+            </a>
+
+            <a href="https://tiktok.com/@smartpromptsoultions?_t=ZP-8yZi466EiHW&_r=1" target="_blank" class="social-link" aria-label="Follow us on TikTok">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2025 Smart Prompt Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      initializeMobileMenu();
+      // Blog functionality
+      initializeBlogFeatures();
+      // Newsletter functionality
+      initializeNewsletter();
+    });
+
+    function initializeMobileMenu() {
+      const mobileMenuToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+              mobileMenuToggle.classList.remove('active');
+            }
+          });
+        });
+      }
+    }
+
+    function initializeBlogFeatures() {
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const searchInput = document.getElementById('blogSearch');
+
+      // Category filtering
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.dataset.category;
+
+          // Update active button and aria-pressed
+          categoryBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+
+          // Filter blog posts
+          filterPostsByCategory(category);
+          
+          // Announce to screen readers
+          announceToScreenReader(`Showing ${category === 'all' ? 'all' : category.replace('-', ' ')} posts`);
+        });
+      });
+
+      function filterPostsByCategory(category) {
+        const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+        let visibleCount = 0;
+        
+        allPosts.forEach(post => {
+          const postCategory = post.getAttribute('data-category');
+          if (category === 'all' || postCategory === category) {
+            post.style.display = 'block';
+            visibleCount++;
+          } else {
+            post.style.display = 'none';
+          }
+        });
+      }
+
+      // Search functionality
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+          let visibleCount = 0;
+
+          const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+          allPosts.forEach(post => {
+            const title = post.querySelector('.post-title, .featured-title').textContent.toLowerCase();
+            const excerpt = post.querySelector('.post-excerpt, .featured-excerpt').textContent.toLowerCase();
+
+            if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+              post.style.display = 'block';
+              visibleCount++;
+            } else {
+              post.style.display = 'none';
+            }
+          });
+
+          // Reset category filters when searching
+          if (searchTerm) {
+            categoryBtns.forEach(b => {
+              b.classList.remove('active');
+              b.setAttribute('aria-pressed', 'false');
+            });
+            const allBtn = document.querySelector('[data-category="all"]');
+            if (allBtn) {
+              allBtn.classList.add('active');
+              allBtn.setAttribute('aria-pressed', 'true');
+            }
+          }
+
+          // Announce search results
+          announceToScreenReader(`Found ${visibleCount} articles matching "${searchTerm}"`);
+        });
+      }
+    }
+
+    function initializeNewsletter() {
+      const newsletterForm = document.getElementById('newsletterForm');
+      const successMessage = document.getElementById('newsletter-success');
+      
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+
+          // Hide form and show success message
+          this.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Announce to screen readers
+          announceToScreenReader('Successfully subscribed to newsletter');
+
+          // Reset after 5 seconds
+          setTimeout(() => {
+            this.style.display = 'flex';
+            successMessage.style.display = 'none';
+            this.reset();
+          }, 5000);
+        });
+      }
+    }
+
+    // Featured post toggle function
+    function toggleFeaturedContent(button) {
+      const featuredPost = button.closest('.featured-post');
+      const fullContent = featuredPost.querySelector('.featured-full-content');
+      const isExpanded = fullContent.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // Collapse
+        fullContent.classList.remove('expanded');
+        button.textContent = 'Continue Reading →';
+        button.setAttribute('aria-expanded', 'false');
+        // Scroll to top of post
+        featuredPost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        announceToScreenReader('Article collapsed');
+      } else {
+        // Expand
+        fullContent.classList.add('expanded');
+        button.textContent = 'Collapse';
+        button.setAttribute('aria-expanded', 'true');
+        announceToScreenReader('Article expanded');
+      }
+    }
+
+    // Regular post toggle function
+    function togglePostContent(button, contentId) {
+      const blogPost = button.closest('.blog-post');
+      const fullContent = document.getElementById(contentId);
+      const isExpanded = fullContent.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // Collapse
+        fullContent.classList.remove('expanded');
+        button.textContent = 'Continue Reading →';
+        button.setAttribute('aria-expanded', 'false');
+        // Scroll to top of post
+        blogPost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        announceToScreenReader('Article collapsed');
+      } else {
+        // Expand
+        fullContent.classList.add('expanded');
+        button.textContent = 'Collapse';
+        button.setAttribute('aria-expanded', 'true');
+        announceToScreenReader('Article expanded');
+      }
+    }
+
+    // Screen reader announcements
+    function announceToScreenReader(message) {
+      const announcements = document.getElementById('announcements');
+      if (announcements) {
+        announcements.textContent = message;
+      }
+    }
+  </script>
+</body>
+</html>
